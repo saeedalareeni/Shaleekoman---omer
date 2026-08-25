@@ -1,0 +1,213 @@
+/* Import Tajawal Font */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+
+/* Invoice Styles */
+body {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, td, th, div, label {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+@media print {
+    body {
+        background: white !important;
+    }
+    
+    .d-print-none {
+        display: none !important;
+    }
+    
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+    }
+}
+
+/* General Invoice Styles */
+.experience-area {
+    background: #f8f9fa;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    padding: 1rem;
+}
+
+.card-header h6 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+/* Table Styles */
+.table {
+    margin-bottom: 1rem;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered td, 
+.table-bordered th {
+    border: 1px solid #dee2e6;
+    padding: 0.5rem;
+    vertical-align: middle;
+}
+
+.table-sm td, 
+.table-sm th {
+    padding: 0.4rem;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* RTL Support */
+[dir="rtl"] .table {
+    text-align: right;
+}
+
+[dir="rtl"] .float-right {
+    float: left !important;
+}
+
+/* Status Badge */
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.bg-danger.p-1 {
+    padding: 0.5rem !important;
+    border-radius: 0.25rem;
+}
+
+/* Print Button */
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+    border-color: #1d2124;
+}
+
+/* Logo */
+.text-center img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .col-md-6 {
+        max-width: 100%;
+    }
+    
+    .table {
+        font-size: 0.875rem;
+    }
+    
+    .card-header h6 {
+        font-size: 1rem;
+    }
+}
+
+/* Amount Highlight */
+.font-weight-bold {
+    font-weight: 600 !important;
+}
+
+tr.font-weight-bold td,
+tr.font-weight-bold th {
+    background-color: #f8f9fa;
+    font-size: 1rem;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Booking Number */
+.booking-number {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Date Column */
+.table td:first-child,
+.table th:first-child {
+    font-weight: 500;
+}
+
+/* Price Column */
+.table td:nth-child(2) {
+    font-weight: 600;
+    color: #28a745;
+}
+
+/* Payment Status */
+.payment-status-paid {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.payment-status-unpaid {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+/* Rest Amount */
+.rest-amount {
+    background-color: #fff3cd;
+    color: #856404;
+    font-size: 1.1rem;
+}
+
+/* Chalet Name */
+.chalet-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}

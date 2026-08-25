@@ -1,0 +1,254 @@
+/**
+ * Arabic Font Styles - Tajwal
+ * This file ensures Tajwal font is used for all Arabic content
+ */
+
+/* ========================================
+   GLOBAL FONT SETTINGS FOR ARABIC
+   ======================================== */
+
+/* Apply Tajwal font when language is Arabic */
+html[lang="ar"] *,
+html[dir="rtl"] *,
+body[lang="ar"] *,
+body[dir="rtl"] * {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+/* Specific elements to ensure font override */
+html[lang="ar"] body,
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, 
+html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6,
+html[lang="ar"] p, html[lang="ar"] span, html[lang="ar"] div,
+html[lang="ar"] a, html[lang="ar"] button, html[lang="ar"] input,
+html[lang="ar"] select, html[lang="ar"] textarea, html[lang="ar"] label,
+html[lang="ar"] .btn, html[lang="ar"] .form-control, html[lang="ar"] .form-select,
+html[lang="ar"] .navbar, html[lang="ar"] .nav-link, html[lang="ar"] .dropdown-item,
+html[lang="ar"] .card, html[lang="ar"] .card-title, html[lang="ar"] .card-text,
+html[lang="ar"] .breadcrumb, html[lang="ar"] .page-link,
+html[lang="ar"] .modal-title, html[lang="ar"] .modal-body,
+html[lang="ar"] .alert, html[lang="ar"] .badge, html[lang="ar"] .toast,
+html[lang="ar"] .accordion-button, html[lang="ar"] .accordion-body,
+html[lang="ar"] .tab-pane, html[lang="ar"] .nav-tabs,
+html[lang="ar"] .table, html[lang="ar"] th, html[lang="ar"] td,
+html[lang="ar"] .list-group-item, html[lang="ar"] .dropdown-menu,
+html[lang="ar"] .offcanvas, html[lang="ar"] .offcanvas-body,
+html[lang="ar"] .tooltip, html[lang="ar"] .popover {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+/* Font weights for better readability */
+html[lang="ar"] body {
+    font-weight: 400;
+}
+
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 {
+    font-weight: 700;
+}
+
+html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6 {
+    font-weight: 600;
+}
+
+html[lang="ar"] .fw-bold {
+    font-weight: 700 !important;
+}
+
+html[lang="ar"] .fw-semibold {
+    font-weight: 600 !important;
+}
+
+html[lang="ar"] .fw-medium {
+    font-weight: 500 !important;
+}
+
+html[lang="ar"] .fw-normal {
+    font-weight: 400 !important;
+}
+
+html[lang="ar"] .fw-light {
+    font-weight: 300 !important;
+}
+
+/* ========================================
+   MOBILE SPECIFIC FONT SETTINGS
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* Ensure Tajwal on mobile devices */
+    html[lang="ar"] *,
+    html[dir="rtl"] * {
+        font-family: 'Tajawal', sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Adjust font sizes for better mobile readability */
+    html[lang="ar"] body {
+        font-size: 14px;
+    }
+    
+    html[lang="ar"] h1 {
+        font-size: 1.75rem;
+    }
+    
+    html[lang="ar"] h2 {
+        font-size: 1.5rem;
+    }
+    
+    html[lang="ar"] h3 {
+        font-size: 1.25rem;
+    }
+    
+    html[lang="ar"] h4 {
+        font-size: 1.1rem;
+    }
+    
+    html[lang="ar"] h5 {
+        font-size: 1rem;
+    }
+    
+    html[lang="ar"] h6 {
+        font-size: 0.9rem;
+    }
+    
+    html[lang="ar"] .btn {
+        font-size: 14px;
+    }
+    
+    html[lang="ar"] .form-control,
+    html[lang="ar"] .form-select {
+        font-size: 14px;
+    }
+}
+
+/* ========================================
+   SPECIFIC COMPONENT FONT SETTINGS
+   ======================================== */
+
+/* Navigation */
+html[lang="ar"] .navbar-brand {
+    font-weight: 700;
+}
+
+html[lang="ar"] .nav-link {
+    font-weight: 500;
+}
+
+/* Buttons */
+html[lang="ar"] .btn {
+    font-weight: 500;
+}
+
+html[lang="ar"] .btn-lg {
+    font-weight: 600;
+}
+
+/* Cards */
+html[lang="ar"] .card-title {
+    font-weight: 600;
+}
+
+/* Forms */
+html[lang="ar"] .form-label {
+    font-weight: 500;
+}
+
+html[lang="ar"] input::placeholder,
+html[lang="ar"] textarea::placeholder {
+    font-family: 'Tajawal', sans-serif !important;
+    font-weight: 300;
+}
+
+/* Tables */
+html[lang="ar"] th {
+    font-weight: 600;
+}
+
+/* Badges */
+html[lang="ar"] .badge {
+    font-weight: 500;
+}
+
+/* ========================================
+   OWNER DASHBOARD SPECIFIC
+   ======================================== */
+
+html[lang="ar"] .owner-header *,
+html[lang="ar"] .owner-sidebar *,
+html[lang="ar"] .content-page *,
+html[lang="ar"] .dashboard-card *,
+html[lang="ar"] .stats-card * {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    html[lang="ar"] * {
+        font-family: 'Tajawal', sans-serif !important;
+    }
+}
+
+/* ========================================
+   FONT LOADING OPTIMIZATION
+   ======================================== */
+
+/* Preload Tajwal font for better performance */
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l5qkHrRpiYlJ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l8qkHrRpiYlJ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l6qkHrRpiYlJ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l4KkHrRpiYlJ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l5KkHrRpiYlJ.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v9/Iurf6YBj_oCad4k1l7qkHrRpiYlJ.woff2') format('woff2');
+}

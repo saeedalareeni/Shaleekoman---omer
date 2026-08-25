@@ -1,0 +1,412 @@
+/**
+ * Mobile Filter Styles - Modern Design
+ * Optimized for mobile devices
+ */
+
+/* ============================================
+   MOBILE FILTER CONTAINER
+   ============================================ */
+@media (max-width: 768px) {
+    /* Main Filter Container */
+    .filter-section {
+        padding: 0 !important;
+        margin: 0 0 15px 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Remove unnecessary wrappers */
+    .filter-section .bg-light,
+    .filter-section .custom-rounded {
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        border: none !important;
+    }
+
+    /* Filter Content Box */
+    .filter-section .border,
+    .filter-section .border-danger-subtle,
+    .filter-section .p-5 {
+        padding: 10px !important;
+        margin: 0 !important;
+        background: white !important;
+        border: none !important;
+        border-radius: 16px !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+    }
+
+    /* Filter Form */
+    .filter-section form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    /* Filter Row */
+    .filter-section .row {
+        margin: 0 -4px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+
+    /* Filter Columns - 2 per row */
+    .filter-section .col-md-6,
+    .filter-section .col-lg-3 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+        padding: 4px !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* ============================================
+       SELECT FIELDS STYLING
+       ============================================ */
+    
+    /* Hide default select and use custom styling */
+    .filter-section select.form-select {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        width: 100% !important;
+        height: 40px !important;
+        padding: 8px 30px 8px 12px !important;
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        color: #333 !important;
+        background: #f8f9fa !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: left 10px center !important;
+        background-size: 12px !important;
+        border: 1.5px solid #e0e0e0 !important;
+        border-radius: 10px !important;
+        transition: all 0.3s ease !important;
+        cursor: pointer !important;
+    }
+
+    [dir="rtl"] .filter-section select.form-select {
+        padding: 8px 12px 8px 30px !important;
+        background-position: right 10px center !important;
+    }
+    
+    /* English (LTR) specific fixes */
+    [dir="ltr"] .filter-section select.form-select {
+        padding: 8px 30px 8px 12px !important;
+        background-position: right 10px center !important;
+        direction: ltr !important;
+        text-align: left !important;
+    }
+    
+    /* Fix mobile header for English */
+    [dir="ltr"] .mobile-header {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+    
+    [dir="ltr"] .mobile-menu {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+    
+    /* Fix mobile footer for English */
+    [dir="ltr"] .mobile-footer {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+    
+    /* Fix cards and listings for English */
+    [dir="ltr"] .deal-card,
+    [dir="ltr"] .property-card,
+    [dir="ltr"] .chalet-card {
+        direction: ltr !important;
+        text-align: left !important;
+    }
+    
+    /* Fix badges and icons positioning for English */
+    [dir="ltr"] .badge,
+    [dir="ltr"] .discount-badge {
+        left: 15px !important;
+        right: auto !important;
+    }
+    
+    /* Fix floating buttons for English */
+    [dir="ltr"] .floating-btn,
+    [dir="ltr"] .whatsapp-btn {
+        right: 20px !important;
+        left: auto !important;
+    }
+
+    /* Select Focus State */
+    .filter-section select.form-select:focus {
+        outline: none !important;
+        border-color: #127664 !important;
+        background-color: white !important;
+        box-shadow: 0 0 0 3px rgba(18, 118, 100, 0.1) !important;
+    }
+
+    /* Select Options */
+    .filter-section select.form-select option {
+        padding: 10px !important;
+        font-size: 0.85rem !important;
+        color: #333 !important;
+    }
+
+    /* ============================================
+       SELECT2 CUSTOMIZATION
+       ============================================ */
+    
+    /* Select2 Container */
+    .filter-section .select2-container {
+        width: 100% !important;
+    }
+
+    /* Select2 Selection Box */
+    .filter-section .select2-container--default .select2-selection--single {
+        height: 40px !important;
+        background: #f8f9fa !important;
+        border: 1.5px solid #e0e0e0 !important;
+        border-radius: 10px !important;
+        padding: 0 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Select2 Focus */
+    .filter-section .select2-container--default.select2-container--focus .select2-selection--single {
+        border-color: #127664 !important;
+        background: white !important;
+        box-shadow: 0 0 0 3px rgba(18, 118, 100, 0.1) !important;
+    }
+
+    /* Select2 Text */
+    .filter-section .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #333 !important;
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        line-height: 38px !important;
+        padding: 0 30px 0 12px !important;
+        text-overflow: ellipsis !important;
+        overflow: hidden !important;
+        white-space: nowrap !important;
+    }
+
+    [dir="rtl"] .filter-section .select2-container--default .select2-selection--single .select2-selection__rendered {
+        padding: 0 12px 0 30px !important;
+        text-align: right !important;
+    }
+
+    /* Select2 Arrow */
+    .filter-section .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 38px !important;
+        right: 10px !important;
+        top: 1px !important;
+    }
+
+    [dir="rtl"] .filter-section .select2-container--default .select2-selection--single .select2-selection__arrow {
+        right: auto !important;
+        left: 10px !important;
+    }
+
+    .filter-section .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: #333 transparent transparent transparent !important;
+        border-width: 6px 4px 0 4px !important;
+        margin-left: -4px !important;
+        margin-top: -3px !important;
+    }
+
+    /* Select2 Dropdown */
+    .select2-dropdown {
+        border: 1.5px solid #e0e0e0 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        margin-top: 4px !important;
+    }
+
+    .select2-results__option {
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+        color: #333 !important;
+        transition: background 0.2s ease !important;
+    }
+
+    .select2-results__option--highlighted {
+        background: #127664 !important;
+        color: white !important;
+    }
+
+    /* ============================================
+       SEARCH BUTTON
+       ============================================ */
+    
+    /* Search Button Container */
+    .filter-section form > div.ms-2 {
+        margin: 8px 0 0 0 !important;
+        width: 100% !important;
+        padding: 0 4px !important;
+    }
+
+    /* Search Button */
+    .filter-section .btn-circle,
+    .filter-section .btn-gradient {
+        width: 100% !important;
+        height: 44px !important;
+        padding: 0 20px !important;
+        background: linear-gradient(135deg, #127664 0%, #159265 100%) !important;
+        border: none !important;
+        border-radius: 12px !important;
+        color: white !important;
+        font-size: 0.9rem !important;
+        font-weight: 600 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 3px 10px rgba(18, 118, 100, 0.3) !important;
+        cursor: pointer !important;
+    }
+
+    /* Search Button Hover/Active */
+    .filter-section .btn-circle:active,
+    .filter-section .btn-gradient:active {
+        transform: scale(0.98) !important;
+        box-shadow: 0 2px 6px rgba(18, 118, 100, 0.2) !important;
+    }
+
+    /* Search Button Icon */
+    .filter-section .btn-circle i,
+    .filter-section .btn-gradient i {
+        font-size: 16px !important;
+        margin-right: 0 !important;
+    }
+
+    /* Add text after icon */
+    .filter-section .btn-circle::after,
+    .filter-section .btn-gradient::after {
+        content: attr(data-text);
+        margin-left: 6px;
+        font-weight: 600;
+    }
+
+    /* ============================================
+       MOBILE OPTIMIZATIONS
+       ============================================ */
+    
+    /* Compact Mode for Small Screens */
+    @media (max-width: 480px) {
+        .filter-section .border,
+        .filter-section .p-5 {
+            padding: 8px !important;
+            border-radius: 12px !important;
+        }
+
+        .filter-section .row {
+            margin: 0 -3px !important;
+        }
+
+        .filter-section .col-md-6,
+        .filter-section .col-lg-3 {
+            padding: 3px !important;
+        }
+
+        .filter-section select.form-select,
+        .filter-section .select2-container--default .select2-selection--single {
+            height: 36px !important;
+            font-size: 0.75rem !important;
+        }
+
+        .filter-section .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 34px !important;
+            font-size: 0.75rem !important;
+        }
+
+        .filter-section .btn-circle,
+        .filter-section .btn-gradient {
+            height: 40px !important;
+            font-size: 0.85rem !important;
+        }
+    }
+
+    /* Extra Small Screens */
+    @media (max-width: 375px) {
+        .filter-section .border,
+        .filter-section .p-5 {
+            padding: 6px !important;
+        }
+
+        .filter-section select.form-select,
+        .filter-section .select2-container--default .select2-selection--single {
+            height: 34px !important;
+            font-size: 0.7rem !important;
+            border-radius: 8px !important;
+        }
+
+        .filter-section .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 32px !important;
+            font-size: 0.7rem !important;
+            padding: 0 25px 0 10px !important;
+        }
+
+        .filter-section .btn-circle,
+        .filter-section .btn-gradient {
+            height: 38px !important;
+            font-size: 0.8rem !important;
+            border-radius: 10px !important;
+        }
+
+        .filter-section .btn-circle i,
+        .filter-section .btn-gradient i {
+            font-size: 14px !important;
+        }
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@media (max-width: 768px) {
+    /* Smooth transitions */
+    .filter-section * {
+        transition: all 0.3s ease;
+    }
+
+    /* Disable animations for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .filter-section * {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional)
+   ============================================ */
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+    .filter-section .border,
+    .filter-section .p-5 {
+        background: #1a1a1a !important;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3) !important;
+    }
+
+    .filter-section select.form-select,
+    .filter-section .select2-container--default .select2-selection--single {
+        background: #2d2d2d !important;
+        border-color: #444 !important;
+        color: #fff !important;
+    }
+
+    .filter-section .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #fff !important;
+    }
+
+    .select2-dropdown {
+        background: #2d2d2d !important;
+        border-color: #444 !important;
+    }
+
+    .select2-results__option {
+        color: #fff !important;
+    }
+}

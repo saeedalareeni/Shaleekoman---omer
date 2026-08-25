@@ -1,0 +1,12 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $font-stack;
+  background-color: #ffffff;
+  color: $text-color;
+  line-height: 1.6;
+}

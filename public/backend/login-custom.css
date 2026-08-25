@@ -1,0 +1,470 @@
+/* ===================================
+   Custom Login Page Styles
+   Weekend Oman Theme Colors
+   =================================== */
+
+/* Background and Body Styles */
+.authentication-bg20 {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.authentication-bg20::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(18, 118, 100, 0.9) 0%, rgba(21, 146, 101, 0.85) 50%, rgba(223, 77, 45, 0.8) 100%);
+    z-index: 1;
+}
+
+body.authentication-bg20 {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+
+.account-pages {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #127664 0%, #159265 50%, #DF4D2D 100%);
+}
+
+.card-body {
+    padding: 2.5rem !important;
+}
+
+/* Logo and Title Styles */
+.text-center h4 {
+    color: white;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 1.8rem;
+    margin-top: 1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.logo img {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Form Styles */
+.form-group label {
+    color: #127664;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border: 2px solid #e8f5f1;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.form-control:focus {
+    border-color: #159265;
+    box-shadow: 0 0 0 0.2rem rgba(21, 146, 101, 0.15);
+    background-color: white;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+/* Button Styles */
+.btn-purple {
+    background: linear-gradient(135deg, #127664 0%, #159265 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(18, 118, 100, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-purple::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-purple:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(18, 118, 100, 0.4);
+    background: linear-gradient(135deg, #159265 0%, #1aa876 100%);
+}
+
+.btn-purple:hover::before {
+    left: 100%;
+}
+
+.btn-purple:active {
+    transform: translateY(0);
+}
+
+/* Alternative Button Style for Secondary Actions */
+.btn-orange {
+    background: linear-gradient(135deg, #DF4D2D 0%, #FF6341 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(223, 77, 45, 0.3);
+}
+
+.btn-orange:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(223, 77, 45, 0.4);
+    background: linear-gradient(135deg, #FF6341 0%, #ff7a5a 100%);
+    color: white;
+}
+
+/* Login Type Selection Buttons */
+.login-type-btn {
+    background: white;
+    border: 2px solid #127664;
+    color: #127664;
+    border-radius: 15px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-type-btn:hover {
+    background: linear-gradient(135deg, #127664 0%, #159265 100%);
+    color: white;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(18, 118, 100, 0.3);
+}
+
+.login-type-btn i {
+    font-size: 1.3rem;
+}
+
+/* Header Title in Card */
+.card-body h4 {
+    color: #127664;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.card-body h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #DF4D2D 0%, #FF6341 100%);
+    border-radius: 2px;
+}
+
+/* Footer Links */
+.text-center a {
+    color: #DF4D2D;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.text-center a:hover {
+    color: #FF6341;
+    text-decoration: underline;
+}
+
+/* Alert Messages */
+.alert {
+    border-radius: 10px;
+    border: none;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.alert-success {
+    background-color: rgba(21, 146, 101, 0.1);
+    color: #127664;
+    border-left: 4px solid #159265;
+}
+
+.alert-danger {
+    background-color: rgba(223, 77, 45, 0.1);
+    color: #DF4D2D;
+    border-left: 4px solid #DF4D2D;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 2rem !important;
+    }
+    
+    .text-center h4 {
+        font-size: 1.5rem;
+    }
+    
+    .btn-purple, .btn-orange {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    .form-control {
+        padding: 0.6rem 0.9rem;
+    }
+}
+
+/* Loading Spinner */
+.btn-purple:disabled, .btn-orange:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.spinner-border {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+}
+
+/* Input Icons */
+.input-group {
+    position: relative;
+}
+
+.input-group-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #127664;
+    z-index: 10;
+}
+
+.input-with-icon {
+    padding-left: 45px !important;
+}
+
+/* Remember Me Checkbox */
+.custom-control-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #159265;
+    border-color: #159265;
+}
+
+/* Password Toggle */
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #127664;
+    z-index: 10;
+}
+
+.password-toggle:hover {
+    color: #159265;
+}
+
+/* RTL Support for Arabic */
+html[dir="rtl"] .input-group-icon {
+    left: auto;
+    right: 15px;
+}
+
+html[dir="rtl"] .input-with-icon {
+    padding-left: 1rem !important;
+    padding-right: 45px !important;
+}
+
+html[dir="rtl"] .password-toggle {
+    right: auto;
+    left: 15px;
+}
+
+html[dir="rtl"] .btn-purple::before {
+    left: auto;
+    right: -100%;
+}
+
+html[dir="rtl"] .btn-purple:hover::before {
+    right: 100%;
+}
+
+html[dir="rtl"] .login-type-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Glass Effect for Cards */
+.card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Gradient Text for Titles */
+.gradient-text {
+    background: linear-gradient(135deg, #127664 0%, #159265 50%, #DF4D2D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Floating Labels Effect */
+.form-group {
+    position: relative;
+}
+
+.floating-label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    color: #999;
+}
+
+.form-control:focus ~ .floating-label,
+.form-control:not(:placeholder-shown) ~ .floating-label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #159265;
+    background: white;
+    padding: 0 5px;
+}
+
+/* Social Login Buttons Enhancement */
+.btn-outline-secondary {
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    border-color: #159265;
+    background: rgba(21, 146, 101, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Success Animation */
+@keyframes successPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(21, 146, 101, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(21, 146, 101, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(21, 146, 101, 0);
+    }
+}
+
+.btn-purple:focus {
+    animation: successPulse 1s;
+}
+
+/* Improved Mobile Responsiveness */
+@media (max-width: 576px) {
+    .authentication-bg20::before {
+        background: linear-gradient(135deg, rgba(18, 118, 100, 0.95) 0%, rgba(21, 146, 101, 0.9) 50%, rgba(223, 77, 45, 0.85) 100%);
+    }
+    
+    .card {
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    .text-center h4 {
+        font-size: 1.3rem;
+    }
+    
+    .btn-purple, .btn-orange, .login-type-btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}

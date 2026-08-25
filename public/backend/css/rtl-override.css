@@ -1,0 +1,348 @@
+/* RTL Override Styles */
+[dir="rtl"] {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] html {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Flexbox RTL fixes */
+[dir="rtl"] .d-flex,
+[dir="rtl"] .header-wrapper,
+[dir="rtl"] .nav-menu,
+[dir="rtl"] .header-right {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .justify-content-start {
+    justify-content: flex-end !important;
+}
+
+[dir="rtl"] .justify-content-end {
+    justify-content: flex-start !important;
+}
+
+/* Text alignment */
+[dir="rtl"] .text-left {
+    text-align: right !important;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left !important;
+}
+
+[dir="rtl"] .text-start {
+    text-align: right !important;
+}
+
+[dir="rtl"] .text-end {
+    text-align: left !important;
+}
+
+/* Float fixes */
+[dir="rtl"] .float-left {
+    float: right !important;
+}
+
+[dir="rtl"] .float-right {
+    float: left !important;
+}
+
+[dir="rtl"] .float-start {
+    float: right !important;
+}
+
+[dir="rtl"] .float-end {
+    float: left !important;
+}
+
+/* Margin fixes */
+[dir="rtl"] .ml-auto,
+[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .mr-auto,
+[dir="rtl"] .me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .ml-1, [dir="rtl"] .ms-1 { margin-right: 0.25rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ml-2, [dir="rtl"] .ms-2 { margin-right: 0.5rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ml-3, [dir="rtl"] .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ml-4, [dir="rtl"] .ms-4 { margin-right: 1.5rem !important; margin-left: 0 !important; }
+[dir="rtl"] .ml-5, [dir="rtl"] .ms-5 { margin-right: 3rem !important; margin-left: 0 !important; }
+
+[dir="rtl"] .mr-1, [dir="rtl"] .me-1 { margin-left: 0.25rem !important; margin-right: 0 !important; }
+[dir="rtl"] .mr-2, [dir="rtl"] .me-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
+[dir="rtl"] .mr-3, [dir="rtl"] .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
+[dir="rtl"] .mr-4, [dir="rtl"] .me-4 { margin-left: 1.5rem !important; margin-right: 0 !important; }
+[dir="rtl"] .mr-5, [dir="rtl"] .me-5 { margin-left: 3rem !important; margin-right: 0 !important; }
+
+/* Padding fixes */
+[dir="rtl"] .pl-1, [dir="rtl"] .ps-1 { padding-right: 0.25rem !important; padding-left: 0 !important; }
+[dir="rtl"] .pl-2, [dir="rtl"] .ps-2 { padding-right: 0.5rem !important; padding-left: 0 !important; }
+[dir="rtl"] .pl-3, [dir="rtl"] .ps-3 { padding-right: 1rem !important; padding-left: 0 !important; }
+[dir="rtl"] .pl-4, [dir="rtl"] .ps-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
+[dir="rtl"] .pl-5, [dir="rtl"] .ps-5 { padding-right: 3rem !important; padding-left: 0 !important; }
+
+[dir="rtl"] .pr-1, [dir="rtl"] .pe-1 { padding-left: 0.25rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pr-2, [dir="rtl"] .pe-2 { padding-left: 0.5rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pr-3, [dir="rtl"] .pe-3 { padding-left: 1rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pr-4, [dir="rtl"] .pe-4 { padding-left: 1.5rem !important; padding-right: 0 !important; }
+[dir="rtl"] .pr-5, [dir="rtl"] .pe-5 { padding-left: 3rem !important; padding-right: 0 !important; }
+
+/* Border fixes */
+[dir="rtl"] .border-left {
+    border-right: 1px solid #dee2e6 !important;
+    border-left: 0 !important;
+}
+
+[dir="rtl"] .border-right {
+    border-left: 1px solid #dee2e6 !important;
+    border-right: 0 !important;
+}
+
+[dir="rtl"] .border-start {
+    border-right: 1px solid #dee2e6 !important;
+    border-left: 0 !important;
+}
+
+[dir="rtl"] .border-end {
+    border-left: 1px solid #dee2e6 !important;
+    border-right: 0 !important;
+}
+
+/* Rounded corners */
+[dir="rtl"] .rounded-left {
+    border-radius: 0 0.25rem 0.25rem 0 !important;
+}
+
+[dir="rtl"] .rounded-right {
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+[dir="rtl"] .rounded-start {
+    border-radius: 0 0.25rem 0.25rem 0 !important;
+}
+
+[dir="rtl"] .rounded-end {
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+/* Header specific RTL */
+[dir="rtl"] .modern-header {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .modern-header .header-wrapper {
+    flex-direction: row !important;
+}
+
+[dir="rtl"] .modern-header .nav-menu {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+    flex-direction: row !important;
+}
+
+[dir="rtl"] .modern-header .nav-item {
+    margin-left: 0 !important;
+    margin-right: 15px !important;
+}
+
+[dir="rtl"] .modern-header .dropdown-modern {
+    left: auto !important;
+    right: 0 !important;
+}
+
+[dir="rtl"] .modern-header .dropdown-item {
+    text-align: right !important;
+}
+
+[dir="rtl"] .modern-header .dropdown-item:hover {
+    transform: translateX(-5px) !important;
+}
+
+[dir="rtl"] .modern-header .dropdown-item i {
+    margin-left: 12px !important;
+    margin-right: 0 !important;
+}
+
+[dir="rtl"] .modern-header .header-right {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    flex-direction: row !important;
+}
+
+[dir="rtl"] .modern-header .notification-dropdown {
+    left: 0 !important;
+    right: auto !important;
+}
+
+[dir="rtl"] .modern-header .notification-badge {
+    right: auto !important;
+    left: -8px !important;
+}
+
+[dir="rtl"] .modern-header .user-menu-btn {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .modern-header .user-menu-btn i {
+    margin-left: 0 !important;
+    margin-right: 8px !important;
+}
+
+/* Tables RTL */
+[dir="rtl"] table {
+    direction: rtl !important;
+}
+
+[dir="rtl"] th,
+[dir="rtl"] td {
+    text-align: right !important;
+}
+
+/* Forms RTL */
+[dir="rtl"] .form-control,
+[dir="rtl"] .form-select,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+[dir="rtl"] .form-check {
+    padding-left: 0 !important;
+    padding-right: 1.25rem !important;
+}
+
+[dir="rtl"] .form-check-input {
+    margin-left: 0 !important;
+    margin-right: -1.25rem !important;
+}
+
+/* Buttons group */
+[dir="rtl"] .btn-group {
+    direction: ltr !important;
+}
+
+/* Pagination */
+[dir="rtl"] .pagination {
+    direction: ltr !important;
+}
+
+/* Breadcrumb */
+[dir="rtl"] .breadcrumb {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    content: "/" !important;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* Cards */
+[dir="rtl"] .card {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+[dir="rtl"] .card-header {
+    text-align: right !important;
+}
+
+[dir="rtl"] .card-body {
+    text-align: right !important;
+}
+
+/* Modals */
+[dir="rtl"] .modal-header {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .modal-header .close,
+[dir="rtl"] .modal-header .btn-close {
+    margin: -1rem auto -1rem -1rem !important;
+}
+
+[dir="rtl"] .modal-body {
+    text-align: right !important;
+}
+
+/* Alerts */
+[dir="rtl"] .alert {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Badges */
+[dir="rtl"] .badge {
+    direction: rtl !important;
+}
+
+/* Dropdowns */
+[dir="rtl"] .dropdown-menu {
+    text-align: right !important;
+    left: auto !important;
+    right: 0 !important;
+}
+
+[dir="rtl"] .dropdown-item {
+    text-align: right !important;
+}
+
+/* Content page */
+[dir="rtl"] .content-page {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Page title */
+[dir="rtl"] .page-title-box {
+    text-align: right !important;
+}
+
+/* Stats cards */
+[dir="rtl"] .stats-card {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Filter box */
+[dir="rtl"] .filter-box {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .filter-box-header {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .filter-row {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .filter-actions {
+    text-align: right !important;
+}
+
+/* Icons spacing */
+[dir="rtl"] i.fas,
+[dir="rtl"] i.far,
+[dir="rtl"] i.fab {
+    margin-left: 5px !important;
+    margin-right: 0 !important;
+}
+
+/* Override any LTR specific styles */
+[dir="rtl"] * {
+    text-align: inherit;
+}

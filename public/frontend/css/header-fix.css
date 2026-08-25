@@ -1,0 +1,299 @@
+/* Header Fix - حل مشكلة التشوهات عند تكبير الصفحة */
+
+/* منع السكرول الأفقي */
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* تحسين الدروب داون */
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-menu {
+    margin-top: 10px !important;
+}
+
+/* تحسين الهيدر الأساسي */
+header {
+    max-width: 100%;
+    overflow: hidden;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.main-header {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* تحسينات إضافية للهيدر */
+.main-nav ul li a {
+    transition: all 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(18, 118, 100, 0.08);
+}
+
+.action-buttons .dropdown a:hover {
+    background-color: rgba(18, 118, 100, 0.05);
+}
+
+/* تحسين التنقل في الشاشات الكبيرة */
+@media (min-width: 1400px) {
+    .main-nav ul {
+        gap: 2rem !important;
+    }
+    
+    header {
+        padding: 1rem 30px !important;
+    }
+    
+    .main-header {
+        padding: 1rem 30px !important;
+    }
+}
+
+/* تحسين التنقل في الشاشات المتوسطة-الكبيرة */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .main-nav ul {
+        gap: 1.5rem !important;
+    }
+    
+    .main-nav a {
+        font-size: 0.9rem !important;
+        padding: 6px 10px !important;
+    }
+    
+    header {
+        padding: 0.8rem 25px !important;
+    }
+    
+    .main-header {
+        padding: 0.8rem 25px !important;
+    }
+}
+
+/* تحسين التنقل في الشاشات المتوسطة */
+@media (min-width: 992px) and (max-width: 1199px) {
+    header {
+        padding: 0.5rem 1.5rem !important;
+    }
+    
+    .main-nav ul {
+        gap: 1rem !important;
+    }
+    
+    .main-nav a {
+        font-size: 0.85rem !important;
+        padding: 5px 8px !important;
+    }
+    
+    .action-buttons {
+        gap: 0.8rem !important;
+    }
+    
+    .action-buttons .btn {
+        padding: 8px 16px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* تحسينات الموبايل */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 15px !important;
+        margin: 0.5rem 10px !important;
+        border-radius: 1.5rem !important;
+        border-width: 1.5px !important;
+    }
+    
+    .main-header {
+        padding: 0.5rem 15px !important;
+        margin: 0.5rem 10px !important;
+    }
+    
+    header .container-fluid {
+        gap: 0.5rem !important;
+        padding: 0 !important;
+    }
+    
+    .logo img,
+    .header-logo img {
+        height: 35px !important;
+        max-width: 120px !important;
+    }
+    
+    .action-buttons {
+        gap: 0.25rem !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .action-buttons .btn {
+        padding: 5px 8px !important;
+        font-size: 0.75rem !important;
+        height: 32px !important;
+    }
+    
+    .action-buttons .dropdown img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .action-buttons .dropdown h6 {
+        font-size: 0.8rem !important;
+    }
+    
+    .action-buttons .dropdown p {
+        display: none !important;
+    }
+    
+    /* إخفاء النصوص في الأزرار على الموبايل الصغير */
+    @media (max-width: 480px) {
+        header {
+            padding: 0.4rem 12px !important;
+            margin: 0.4rem 8px !important;
+            border-width: 1px !important;
+        }
+        
+        .main-header {
+            padding: 0.4rem 12px !important;
+            margin: 0.4rem 8px !important;
+        }
+        
+        .logo img,
+        .header-logo img {
+            height: 30px !important;
+            max-width: 100px !important;
+        }
+        
+        .action-buttons {
+            gap: 0.2rem !important;
+        }
+        
+        .action-buttons .btn {
+            padding: 4px 6px !important;
+            height: 28px !important;
+            font-size: 0.7rem !important;
+        }
+        
+        .menu-toggle svg {
+            width: 24px !important;
+            height: 18px !important;
+        }
+    }
+}
+
+/* تحسينات الموبايل الصغير جداً */
+@media (max-width: 375px) {
+    header {
+        padding: 0.3rem 10px !important;
+        margin: 0.3rem 6px !important;
+    }
+    
+    .main-header {
+        padding: 0.3rem 10px !important;
+        margin: 0.3rem 6px !important;
+    }
+    
+    .logo img,
+    .header-logo img {
+        height: 28px !important;
+        max-width: 85px !important;
+    }
+    
+    .action-buttons {
+        gap: 0.2rem !important;
+    }
+    
+    .action-buttons .btn {
+        padding: 3px 5px !important;
+        height: 26px !important;
+    }
+    
+    .action-buttons .dropdown img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .menu-toggle svg {
+        width: 22px !important;
+        height: 16px !important;
+    }
+}
+
+/* إخفاء بعض العناصر في الشاشات الصغيرة */
+@media (max-width: 1100px) {
+    .main-nav ul li:nth-child(6),
+    .main-nav ul li:nth-child(7) {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .main-nav {
+        display: none !important;
+    }
+}
+
+/* تحسين القائمة الجانبية للموبايل */
+.side-nav {
+    max-width: 350px;
+    width: 85vw;
+}
+
+/* منع كسر النصوص */
+.main-nav a {
+    white-space: nowrap;
+}
+
+/* تحسين الأزرار */
+.action-buttons .btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* دعم RTL للغة العربية */
+[dir="rtl"] header .container-fluid {
+    direction: rtl;
+}
+
+[dir="rtl"] .action-buttons {
+    flex-direction: row;
+}
+
+[dir="rtl"] #userDropdownMenu {
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* دعم LTR للغة الإنجليزية */
+[dir="ltr"] header .container-fluid {
+    direction: ltr;
+}
+
+[dir="ltr"] .action-buttons {
+    flex-direction: row;
+}
+
+[dir="ltr"] #userDropdownMenu {
+    right: 0 !important;
+    left: auto !important;
+}
+
+/* تحسين ترتيب العناصر */
+.action-buttons > * {
+    flex-shrink: 0;
+}
+
+/* التأكد من المحاذاة الصحيحة */
+[dir="rtl"] .main-nav {
+    direction: rtl;
+}
+
+[dir="ltr"] .main-nav {
+    direction: ltr;
+}

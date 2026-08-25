@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML + SASS Example</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Poppins Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="src/scss/main.css">
+
+    <!-- this font only when direction is RTL -->
+    <style>
+        @font-face {
+            font-family: 'ExpoArabic';
+            src: url('src/assets/fonts/ExpoArabic.ttf') format('truetype');
+        }
+
+        * {
+            font-family: 'ExpoArabic', Arial, sans-serif;
+        }
+    </style>
+
+</head>
+<body dir="rtl" >
+
+    <main class="main">
+        <header>
+            <div class="container m-0">
+                <div class="logo" >
+                    <img src="src/assets/images/website-logo.png" alt="website_logo">
+                </div>
+
+                <nav class="main-nav" >
+                    <ul>
+                    <li><a class="fw-medium text-dark active-nav" href="">الرئيسية</a></li>
+                    <li><a class="fw-medium text-dark" href="">عروض ويكند</a></li>
+                    <li><a class="fw-medium text-dark" href="">تعرف علينا</a></li>
+                    <li><a class="fw-medium text-dark" href="">خدماتنا</a></li>
+                    <li><a class="fw-medium text-dark" href="">تواصل معنا</a></li>
+                    <li>
+                        <nav>
+                        <ul>
+                            <li>
+                                <a href="#" class="btn bg-orange  py-2 px-3 text-white border-width-2 border-radius-20 fw-medium" >
+                                    <span>
+                                        <span>أضف عقارك</span>
+                                        <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11 21.5C16.5 21.5 21 17 21 11.5C21 6 16.5 1.5 11 1.5C5.5 1.5 1 6 1 11.5C1 17 5.5 21.5 11 21.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M7 11.5H15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11 15.5V7.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <a href="#" class="btn btn-success bg-transparent py-2 border-width-2 border-radius-20 fw-medium" >
+                                    <span>تسجيل الدخول</span>
+                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.1802 15.12L14.7402 12.56L12.1802 10" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M4.5 12.56H14.67" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.5 4.5C16.92 4.5 20.5 7.5 20.5 12.5C20.5 17.5 16.92 20.5 12.5 20.5" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        </nav>
+                    </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Profile Page Section -->
+        <section class="profile-page">
+            <div class="container-fluid px-5">
+                <div class="profile-layout">
+                    <!-- Sidebar -->
+                    <div class="profile-sidebar">
+                        <div class="user-info">
+                            <h3 class="user-name secondary-green-color">عمر الشبلي</h3>
+                            <p class="user-email">shibi898@gmail.com</p>
+                        </div>
+
+                        <nav class="sidebar-nav">
+                            <ul class="nav-menu nav-menu d-flex flex-column align-items-center">
+                                <li class="nav-item text-center active">
+                                    <a href="#" class="nav-item btn btn-dark d-flex gap-2 bg-transparent rounded-pill side-btn-padding border-width-2 border-radius-20 fw-medium active-side-link" >
+                                        <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 11.5C12.7614 11.5 15 9.26142 15 6.5C15 3.73858 12.7614 1.5 10 1.5C7.23858 1.5 5 3.73858 5 6.5C5 9.26142 7.23858 11.5 10 11.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17.2101 15.24L13.67 18.7801C13.53 18.9201 13.4 19.18 13.37 19.37L13.18 20.72C13.11 21.21 13.45 21.55 13.94 21.48L15.29 21.29C15.48 21.26 15.75 21.13 15.88 20.99L19.42 17.45C20.03 16.84 20.32 16.13 19.42 15.23C18.53 14.34 17.8201 14.63 17.2101 15.24Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M16.7002 15.75C17.0002 16.83 17.8402 17.67 18.9202 17.97" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M1.41016 21.5C1.41016 17.63 5.26018 14.5 10.0002 14.5C11.0402 14.5 12.0402 14.65 12.9702 14.93" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="side-link-span" >تعديل حسابي</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item text-center">
+                                    <a href="#" class="nav-item btn btn-dark d-flex gap-2 bg-transparent rounded-pill side-btn-padding border-width-2 border-radius-20 fw-medium" >
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2.5V5.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M16 2.5V5.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3.5 9.58997H20.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M21 9V17.5C21 20.5 19.5 22.5 16 22.5H8C4.5 22.5 3 20.5 3 17.5V9C3 6 4.5 4 8 4H16C19.5 4 21 6 21 9Z" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15.6947 14.2H15.7037" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M15.6947 17.2H15.7037" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.9955 14.2H12.0045" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.9955 17.2H12.0045" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.29431 14.2H8.30329" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.29431 17.2H8.30329" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="side-link-span" >حجوزاتي</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item text-center">
+                                    <a href="#" class="nav-item btn btn-dark d-flex gap-2 bg-transparent rounded-pill side-btn-padding border-width-2 border-radius-20 fw-medium" >
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.62 21.31C12.28 21.43 11.72 21.43 11.38 21.31C8.48 20.32 2 16.19 2 9.18998C2 6.09998 4.49 3.59998 7.56 3.59998C9.38 3.59998 10.99 4.47998 12 5.83998C13.01 4.47998 14.63 3.59998 16.44 3.59998C19.51 3.59998 22 6.09998 22 9.18998C22 16.19 15.52 20.32 12.62 21.31Z" stroke="#343F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="side-link-span" >مفضلتي</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item text-center">
+                                    <a href="#" class="nav-item btn btn-dark d-flex gap-2 bg-transparent rounded-pill side-btn-padding border-width-2 border-radius-20 fw-medium" >
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2.5V5.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M16 2.5V5.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M18.2 21.9C19.9673 21.9 21.4 20.4673 21.4 18.7C21.4 16.9327 19.9673 15.5 18.2 15.5C16.4327 15.5 15 16.9327 15 18.7C15 20.4673 16.4327 21.9 18.2 21.9Z" stroke="#343F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M22 22.5L21 21.5" stroke="#343F52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M3.5 9.58997H20.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.37 22.5H8C4.5 22.5 3 20.5 3 17.5V9C3 6 4.5 4 8 4H16C19.5 4 21 6 21 9V13.5" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M11.9955 14.2H12.0045" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.29431 14.2H8.30329" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8.29431 17.2H8.30329" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="side-link-span" >آخر عملية بحث</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item text-center">
+                                    <a href="#" class="nav-item btn btn-dark d-flex gap-2 bg-transparent rounded-pill side-btn-padding border-width-2 border-radius-20 fw-medium" >
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.98 11.29V15.29C17.98 15.55 17.97 15.8 17.94 16.04C17.71 18.74 16.12 20.08 13.19 20.08H12.79C12.54 20.08 12.3 20.2 12.15 20.4L10.95 22C10.42 22.71 9.56 22.71 9.03 22L7.82999 20.4C7.69999 20.23 7.41 20.08 7.19 20.08H6.79001C3.60001 20.08 2 19.29 2 15.29V11.29C2 8.36001 3.35001 6.77001 6.04001 6.54001C6.28001 6.51001 6.53001 6.5 6.79001 6.5H13.19C16.38 6.5 17.98 8.10001 17.98 11.29Z" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M21.98 7.29001V11.29C21.98 14.23 20.63 15.81 17.94 16.04C17.97 15.8 17.98 15.55 17.98 15.29V11.29C17.98 8.10001 16.38 6.5 13.19 6.5H6.79004C6.53004 6.5 6.28004 6.51001 6.04004 6.54001C6.27004 3.85001 7.86004 2.5 10.79 2.5H17.19C20.38 2.5 21.98 4.10001 21.98 7.29001Z" stroke="#343F52" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M13.4955 13.75H13.5045" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M9.9955 13.75H10.0045" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6.4955 13.75H6.5045" stroke="#343F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="side-link-span" >التواصل معنا</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item text-center">
+                                    <a href="#" class="nav-item btn btn-danger d-flex border-radius-25 gap-2 text-danger bg-transparent side-btn-padding border-width-2 fw-medium" >
+                                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.8999 8.05999C9.2099 4.45999 11.0599 2.98999 15.1099 2.98999H15.2399C19.7099 2.98999 21.4999 4.77999 21.4999 9.24999V15.77C21.4999 20.24 19.7099 22.03 15.2399 22.03H15.1099C11.0899 22.03 9.2399 20.58 8.9099 17.04" stroke="#EA1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M2 12.5H14.88" stroke="#EA1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M12.6499 9.15002L15.9999 12.5L12.6499 15.85" stroke="#EA1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span class="side-link-span" >تسجيل الخروج</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Main Content (Keep your existing content here) -->
+                    <div class="profile-content">
+                        <!-- Stats Cards Container -->
+                        
+                        <div class="statistics-cards" >
+                            <div class="row">
+                                <div class="col-md-3 max-width-230">
+                                    <div class="card statistic-card text-end bg-transparent d-flex flex-row justify-content-between align-items-center p-4 px-4 mx-0" >
+                                        <div>
+                                            <div class="mb-3" >
+                                                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8 2V5" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M16 2V5" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M3.5 9.08997H20.5" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#127664" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M15.6947 13.7H15.7037" stroke="#127664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M15.6947 16.7H15.7037" stroke="#127664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M11.9955 13.7H12.0045" stroke="#127664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M11.9955 16.7H12.0045" stroke="#127664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M8.29431 13.7H8.30329" stroke="#127664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M8.29431 16.7H8.30329" stroke="#127664" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <p class="fw-bold mb-0 primary-green-color" >حجوزاتي</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="m-0 fw-bold" >0</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 max-width-230">
+                                    <div class="card statistic-card text-end bg-transparent d-flex flex-row justify-content-between align-items-center p-4 px-4 mx-0" >
+                                        <div>
+                                            <div class="mb-3" >
+                                                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13.7299 3.51001L15.4899 7.03001C15.7299 7.52002 16.3699 7.99001 16.9099 8.08001L20.0999 8.61001C22.1399 8.95001 22.6199 10.43 21.1499 11.89L18.6699 14.37C18.2499 14.79 18.0199 15.6 18.1499 16.18L18.8599 19.25C19.4199 21.68 18.1299 22.62 15.9799 21.35L12.9899 19.58C12.4499 19.26 11.5599 19.26 11.0099 19.58L8.01991 21.35C5.87991 22.62 4.57991 21.67 5.13991 19.25L5.84991 16.18C5.97991 15.6 5.74991 14.79 5.32991 14.37L2.84991 11.89C1.38991 10.43 1.85991 8.95001 3.89991 8.61001L7.08991 8.08001C7.61991 7.99001 8.25991 7.52002 8.49991 7.03001L10.2599 3.51001C11.2199 1.60001 12.7799 1.60001 13.7299 3.51001Z" stroke="#127664" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <p class="fw-bold mb-0 primary-green-color" >تقييمات العملاء</p>
+                                        </div>
+                                        <div>
+                                            <h3 class="m-0 fw-bold" >0</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile Form Section -->
+                        <div class="profile-form">
+                            <div class="form-container">
+                                <!-- RIGHT SIDE - Personal Information -->
+                                <div class="form-right">
+                                    <div class="form-group">
+                                        <label class="form-label fw-medium secondary-green-color">الاسم</label>
+                                        <input type="text" class="form-input" placeholder="ادخل الاسم هنا">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label fw-medium secondary-green-color">رقم الهاتف</label>
+                                        <input type="tel" class="form-input" placeholder="ادخل رقم الهاتف">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label fw-medium secondary-green-color">البريد الإلكتروني</label>
+                                        <input type="email" class="form-input" placeholder="user@gmail.com">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label fw-medium secondary-green-color">العنوان</label>
+                                        <input type="text" class="form-input" placeholder="عمان، مسقط، عمان">
+                                    </div>
+                                </div>
+
+                                <!-- LEFT SIDE - Password Reset -->
+                                <div class="form-left">
+                                    <h3 class="form-title">إعادة تعيين كلمة المرور</h3>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label fw-medium secondary-green-color">ادخل كلمة المرور الجديدة</label>
+                                        <input type="password" class="form-input" placeholder="..........">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label fw-medium secondary-green-color">تأكيد كلمة المرور</label>
+                                        <input type="password" class="form-input" placeholder="..........">
+                                    </div>
+                                    
+                                    <button type="button" class="btn-confirm primary-bg-green rounded-pill fw-medium">تأكيد</button>
+                                </div>
+
+                            </div>
+
+                            <!-- BOTTOM - Save Button -->
+                            <div class="form-footer">
+                                <button type="submit" class="btn-save primary-bg-green rounded-pill fw-medium">حفظ التغييرات</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="src/js/main.js" ></script>
+
+</body>
+</html>

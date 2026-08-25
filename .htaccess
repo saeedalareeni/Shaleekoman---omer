@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # منع الوصول المباشر إلى الملفات الحساسة
+    <FilesMatch "^\.env$">
+        Require all denied
+    </FilesMatch>
+
+    <FilesMatch "\.git">
+        Require all denied
+    </FilesMatch>
+
+    <FilesMatch "\.htaccess">
+        Require all denied
+    </FilesMatch>
+
+    # توجيه كل الطلبات إلى index.php
+
+		RewriteEngine on
+		RewriteCond %{REQUEST_URI} !^public
+		RewriteRule ^(.*)$ public/$1 [L]
+	</IfModule>

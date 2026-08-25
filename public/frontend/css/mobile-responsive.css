@@ -1,0 +1,1144 @@
+/* Mobile Responsive Improvements */
+
+/* ============================================
+   GENERAL MOBILE STYLES
+   ============================================ */
+@media (max-width: 768px) {
+    /* Body and Container Adjustments */
+    body {
+        font-size: 14px;
+    }
+    
+    .container, .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Section Spacing */
+    section {
+        padding: 30px 0 !important;
+    }
+    
+    /* Typography */
+    h1 { font-size: 1.75rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.25rem !important; }
+    h4 { font-size: 1.1rem !important; }
+    h5 { font-size: 1rem !important; }
+    h6 { font-size: 0.9rem !important; }
+}
+
+/* ============================================
+   FILTER SECTION MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Filter Container */
+    .filter-section,
+    .search-filter-section,
+    .search-section {
+        padding: 15px !important;
+        margin: 10px !important;
+        border-radius: 12px !important;
+        background: #f8f9fa !important;
+    }
+    
+    /* Filter Form */
+    .filter-form,
+    .search-form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    .filter-form .row,
+    .search-form .row {
+        margin: 0 !important;
+    }
+    
+    .filter-form .col,
+    .filter-form [class*="col-"],
+    .search-form .col,
+    .search-form [class*="col-"] {
+        width: 100% !important;
+        padding: 5px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Filter Inputs */
+    .filter-form input,
+    .filter-form select,
+    .filter-form button,
+    .search-form input,
+    .search-form select,
+    .search-form button {
+        width: 100% !important;
+        height: 45px !important;
+        font-size: 14px !important;
+        border-radius: 8px !important;
+    }
+    
+    /* Search Button */
+    .filter-form .btn-search,
+    .filter-form button[type="submit"],
+    .search-form .btn-search,
+    .search-form button[type="submit"] {
+        width: 100% !important;
+        margin-top: 10px !important;
+        padding: 12px !important;
+        font-size: 16px !important;
+        background: #127664 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Date Inputs */
+    .date-input-group,
+    input[type="date"] {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Price Range */
+    .price-range-inputs {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+    
+    /* Select Dropdowns */
+    select.form-control,
+    select.form-select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right .75rem center;
+        background-size: 16px 12px;
+        padding-right: 2.5rem !important;
+    }
+}
+
+/* ============================================
+   PROPERTY CARDS MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Property Grid */
+    .property-grid,
+    .chalets-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 15px !important;
+    }
+    
+    /* Property Card */
+    .property-card,
+    .chalet-card {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .property-card img,
+    .chalet-card img {
+        height: 200px !important;
+        object-fit: cover !important;
+    }
+    
+    /* Card Content */
+    .property-card-content,
+    .chalet-card-content {
+        padding: 15px !important;
+    }
+    
+    .property-card-title,
+    .chalet-card-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .property-card-price,
+    .chalet-card-price {
+        font-size: 1.2rem !important;
+    }
+    
+    /* Card Features */
+    .property-features,
+    .chalet-features {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    
+    .feature-item {
+        font-size: 12px !important;
+    }
+}
+
+/* ============================================
+   HERO SECTION MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Hero Banner */
+    .hero-section,
+    .banner-section {
+        height: auto !important;
+        min-height: 400px !important;
+        padding: 30px 15px !important;
+    }
+    
+    .hero-content h1,
+    .banner-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .hero-content p,
+    .banner-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px !important;
+    }
+    
+    /* Hero Search */
+    .hero-search {
+        padding: 20px !important;
+        border-radius: 12px !important;
+    }
+    
+    .hero-search form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+}
+
+/* ============================================
+   NAVIGATION MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Category Tabs */
+    .category-tabs,
+    .nav-tabs {
+        display: flex !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        padding: 10px 0 !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .category-tabs::-webkit-scrollbar,
+    .nav-tabs::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .category-tab,
+    .nav-link {
+        flex: 0 0 auto !important;
+        padding: 8px 15px !important;
+        font-size: 14px !important;
+        margin-right: 10px !important;
+    }
+}
+
+/* ============================================
+   MODAL & POPUPS MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Modal Dialog */
+    .modal-dialog {
+        margin: 10px !important;
+        max-width: calc(100% - 20px) !important;
+    }
+    
+    .modal-content {
+        border-radius: 12px !important;
+    }
+    
+    .modal-header {
+        padding: 15px !important;
+    }
+    
+    .modal-body {
+        padding: 15px !important;
+    }
+    
+    .modal-footer {
+        padding: 15px !important;
+    }
+    
+    /* Dropdown Menus */
+    .dropdown-menu {
+        width: calc(100vw - 30px) !important;
+        max-width: 350px !important;
+    }
+}
+
+/* ============================================
+   FOOTER MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px !important;
+    }
+    
+    .footer-content {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+    
+    .footer-column {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .footer-links {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    .social-links {
+        justify-content: center !important;
+        gap: 15px !important;
+    }
+}
+
+/* ============================================
+   FORMS MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Form Groups */
+    .form-group {
+        margin-bottom: 15px !important;
+    }
+    
+    .form-control,
+    .form-select {
+        height: 45px !important;
+        font-size: 14px !important;
+        padding: 10px 12px !important;
+    }
+    
+    textarea.form-control {
+        min-height: 100px !important;
+    }
+    
+    /* Form Labels */
+    .form-label {
+        font-size: 14px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    /* Submit Buttons */
+    .btn-submit,
+    button[type="submit"] {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* ============================================
+   UTILITIES MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Hide on Mobile */
+    .hide-mobile {
+        display: none !important;
+    }
+    
+    /* Show on Mobile Only */
+    .show-mobile {
+        display: block !important;
+    }
+    
+    /* Text Alignment */
+    .text-mobile-center {
+        text-align: center !important;
+    }
+    
+    /* Spacing Utilities */
+    .mt-mobile-3 { margin-top: 1rem !important; }
+    .mb-mobile-3 { margin-bottom: 1rem !important; }
+    .pt-mobile-3 { padding-top: 1rem !important; }
+    .pb-mobile-3 { padding-bottom: 1rem !important; }
+}
+
+/* ============================================
+   SWIPER/SLIDER MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    .swiper-container {
+        padding: 0 !important;
+    }
+    
+    .swiper-slide {
+        width: 100% !important;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        display: none !important;
+    }
+    
+    .swiper-pagination {
+        bottom: 10px !important;
+    }
+}
+
+/* ============================================
+   SPECIFIC FIXES FOR SMALL DEVICES
+   ============================================ */
+@media (max-width: 480px) {
+    /* Extra Small Devices */
+    body {
+        font-size: 13px;
+    }
+    
+    .container, .container-fluid {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+    }
+    
+    .btn-lg {
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Cards */
+    .card {
+        border-radius: 8px !important;
+    }
+    
+    .card-body {
+        padding: 12px !important;
+    }
+}
+
+/* ============================================
+   IPHONE SPECIFIC FIXES
+   ============================================ */
+@media (max-width: 375px) {
+    /* iPhone SE, iPhone 6/7/8 */
+    header {
+        padding: 8px !important;
+    }
+    
+    .filter-section {
+        padding: 10px !important;
+        margin: 5px !important;
+    }
+    
+    .property-card img {
+        height: 180px !important;
+    }
+}
+
+/* ============================================
+   RTL MOBILE SUPPORT
+   ============================================ */
+@media (max-width: 768px) {
+    [dir="rtl"] .text-mobile-center {
+        text-align: center !important;
+    }
+    
+    [dir="rtl"] .swiper-button-next {
+        left: 10px !important;
+        right: auto !important;
+    }
+    
+    [dir="rtl"] .swiper-button-prev {
+        right: 10px !important;
+        left: auto !important;
+    }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE
+   ============================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 300px !important;
+    }
+    
+    .filter-form {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .filter-form > * {
+        flex: 1 1 45% !important;
+    }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+/* Prevent horizontal scroll */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* Optimize animations on mobile */
+@media (max-width: 768px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Reduce animations for better performance */
+    *, *::before, *::after {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.3s !important;
+    }
+    
+    /* Optimize scrolling */
+    .scrollable {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+    }
+}
+
+/* ============================================
+   CRITICAL FIXES
+   ============================================ */
+@media (max-width: 768px) {
+    /* Fix Bootstrap container padding */
+    .container-fluid {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+    
+    /* Fix images overflow */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Fix payment card logo size (Thawani, etc.) */
+    .payment-option img,
+    img[src*="thawani.jpg"] {
+        max-width: 140px !important;
+        width: auto !important;
+        height: auto !important;
+        display: inline-block !important;
+    }
+    
+    /* Fix tables on mobile */
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+    }
+    
+    /* Fix long text overflow */
+    .text-truncate-mobile {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+    }
+    
+    /* Fix buttons */
+    .btn {
+        touch-action: manipulation;
+                 -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    }
+    
+    /* Fix form elements */
+    input, select, textarea {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR FOR MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    /* Hide scrollbar but keep functionality */
+    .hide-scrollbar {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+}
+
+/* ============================================
+   Z-INDEX FIXES
+   ============================================ */
+.modal {
+    z-index: 10000 !important;
+}
+
+.modal-backdrop {
+    /* Must sit above page content but under modal */
+    z-index: 0 !important;
+    opacity: 0 !important;
+    background-color: #000 !important;
+}
+
+.modal-backdrop.show{
+    z-index: 0 !important;
+    opacity: 0 !important;
+}
+
+.dropdown-menu {
+    z-index: 9998 !important;
+}
+
+.toast {
+    z-index: 10001 !important;
+}
+
+/* ============================================
+   CHALET DETAILS PAGE MOBILE - COMPLETE REDESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    /* Reset and Base Styles */
+    body.chalet-details-page,
+    .chalet-details-page body {
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Main Container */
+    .chalet-details-page .container,
+    .container.chalet-details {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Row and Column Fixes */
+    .chalet-details-page .row {
+        margin: 0 !important;
+    }
+    
+    .chalet-details-page .col-lg-8,
+    .chalet-details-page .col-lg-4 {
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Images Section - Professional Mobile Layout */
+    .property-images-grid {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+    }
+    
+    .large-image-wrapper {
+        width: 100% !important;
+        height: 280px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+    }
+    
+    .large-image-wrapper img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .images-column-small {
+        display: flex !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        gap: 8px !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        height: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .images-column-small::-webkit-scrollbar {
+        height: 4px !important;
+    }
+    
+    .images-column-small::-webkit-scrollbar-track {
+        background: #f1f1f1 !important;
+    }
+    
+    .images-column-small::-webkit-scrollbar-thumb {
+        background: #888 !important;
+        border-radius: 4px !important;
+    }
+    
+    .small-image-wrapper {
+        flex: 0 0 120px !important;
+        height: 90px !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+        position: relative !important;
+    }
+    
+    .small-image-wrapper img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    /* Property Title Section - Professional Design */
+    .property-title-section,
+    .property-header {
+        padding: 20px 15px !important;
+        background: white !important;
+        border-bottom: 1px solid #e5e7eb !important;
+    }
+    
+    .property-title-section h1,
+    .property-header h1 {
+        font-size: 1.4rem !important;
+        font-weight: 600 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 8px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .property-location,
+    .location-info {
+        display: flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        font-size: 0.9rem !important;
+        color: #666 !important;
+    }
+    
+    .property-location i {
+        color: #127664 !important;
+    }
+    
+    /* Rating and Reviews Section */
+    .rating-section {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        margin-top: 10px !important;
+        padding: 10px 0 !important;
+    }
+    
+    .rating-stars {
+        display: flex !important;
+        gap: 2px !important;
+    }
+    
+    .rating-number {
+        font-weight: 600 !important;
+        color: #1a1a1a !important;
+    }
+    
+    .reviews-count {
+        color: #666 !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Content Sections */
+    .content-section {
+        padding: 20px 15px !important;
+        background: white !important;
+        margin-bottom: 10px !important;
+        border-bottom: 8px solid #f5f5f5 !important;
+    }
+    
+    .section-title {
+        font-size: 1.1rem !important;
+        font-weight: 600 !important;
+        color: #1a1a1a !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Booking Card - Fixed Bottom Design */
+    .booking-card {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        background: white !important;
+        border-radius: 16px 16px 0 0 !important;
+        padding: 15px !important;
+        z-index: 1000 !important;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1) !important;
+        display: none !important; /* Initially hidden */
+    }
+    
+    .booking-card.show {
+        display: block !important;
+    }
+    
+    /* Floating Book Button */
+    .book-now-floating {
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 15px !important;
+        right: 15px !important;
+        background: #127664 !important;
+        color: white !important;
+        padding: 15px !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        font-size: 1rem !important;
+        box-shadow: 0 4px 12px rgba(18, 118, 100, 0.3) !important;
+        z-index: 999 !important;
+        cursor: pointer !important;
+        border: none !important;
+    }
+    
+    .sticky-card {
+        position: static !important;
+    }
+    
+    /* Add padding to bottom of content */
+    .chalet-details-content,
+    .col-lg-8 {
+        padding-bottom: 80px !important;
+    }
+    
+    /* Price Section Mobile */
+    .price-section {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 0 !important;
+    }
+    
+    .price-amount {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Date Inputs Mobile */
+    .date-input-group {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+    
+    .date-input label {
+        font-size: 12px !important;
+    }
+    
+    .date-input input,
+    .date-input textarea {
+        padding: 12px !important;
+        font-size: 16px !important; /* Prevent zoom on iOS */
+    }
+    
+    /* Tabs Navigation - Professional Scrollable Design */
+    .specs-tabs-navigation {
+        display: flex !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        white-space: nowrap !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: white !important;
+        border-bottom: 1px solid #e5e7eb !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+    
+    .specs-tabs-navigation::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .tab-btn {
+        flex: 0 0 auto !important;
+        padding: 15px 20px !important;
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
+        color: #666 !important;
+        background: transparent !important;
+        border: none !important;
+        border-bottom: 2px solid transparent !important;
+        transition: all 0.3s !important;
+        cursor: pointer !important;
+    }
+    
+    .tab-btn.active {
+        color: #127664 !important;
+        border-bottom-color: #127664 !important;
+        font-weight: 600 !important;
+    }
+    
+    .tab-btn:hover {
+        background: rgba(18, 118, 100, 0.05) !important;
+    }
+    
+    /* Tab Content - Clean Design */
+    .tab-content {
+        padding: 0 !important;
+        background: white !important;
+    }
+    
+    .tab-pane {
+        padding: 20px 15px !important;
+    }
+    
+    /* Amenities Grid - Modern Layout */
+    .amenities-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+        padding: 0 !important;
+    }
+    
+    .amenity-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 12px 8px !important;
+        background: #f8f9fa !important;
+        border-radius: 8px !important;
+        font-size: 0.75rem !important;
+        text-align: center !important;
+        gap: 5px !important;
+    }
+    
+    .amenity-item i {
+        font-size: 1.2rem !important;
+        color: #127664 !important;
+    }
+    
+    /* Features List Mobile */
+    .features-list {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+    
+    .feature-item {
+        padding: 12px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Owner Card Mobile */
+    .owner-card {
+        padding: 15px !important;
+        margin: 15px 0 !important;
+    }
+    
+    .owner-info {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
+    
+    .owner-avatar {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    /* Reviews Section Mobile */
+    .reviews-section {
+        padding: 15px !important;
+    }
+    
+    .review-card {
+        padding: 12px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .review-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 5px !important;
+    }
+    
+    /* Map Section Mobile */
+    .map-container {
+        height: 250px !important;
+        margin: 15px 0 !important;
+    }
+    
+    /* Buttons Mobile */
+    .btn-book-now,
+    .whatsapp-button {
+        padding: 14px !important;
+        font-size: 16px !important;
+        border-radius: 10px !important;
+    }
+    
+    /* Share Buttons Mobile */
+    .share-buttons {
+        justify-content: center !important;
+        gap: 15px !important;
+        margin: 20px 0 !important;
+    }
+    
+    .share-btn {
+        padding: 10px !important;
+        font-size: 20px !important;
+    }
+    
+    /* Similar Properties Mobile */
+    .similar-properties {
+        padding: 20px 10px !important;
+    }
+    
+    .similar-properties-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    /* Guarantee Card Mobile */
+    .guarantee-card {
+        padding: 15px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .guarantee-items {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+}
+
+/* General Mobile Fixes for Chalet Page */
+@media (max-width: 768px) {
+    /* Fix Bootstrap Grid */
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    /* Description and Content */
+    .property-description {
+        padding: 20px 15px !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        color: #333 !important;
+    }
+    
+    /* Guarantee Card */
+    .guarantee-card {
+        margin: 15px !important;
+        padding: 20px !important;
+        border-radius: 12px !important;
+    }
+    
+    .guarantee-items {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    .guarantee-item {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 10px !important;
+        background: white !important;
+        border-radius: 8px !important;
+    }
+    
+    /* WhatsApp Button */
+    .whatsapp-button {
+        position: fixed !important;
+        bottom: 90px !important;
+        right: 20px !important;
+        left: auto !important;
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 50% !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 30px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    }
+    
+    .whatsapp-button span {
+        display: none !important;
+    }
+    
+    .whatsapp-button i {
+        margin: 0 !important;
+    }
+}
+
+/* Extra Small Devices (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    .property-images-grid {
+        margin-top: 5px !important;
+    }
+    
+    .large-image-wrapper {
+        height: 200px !important;
+    }
+    
+    .images-column-small {
+        grid-template-columns: repeat(2, 1fr) !important;
+        height: 80px !important;
+    }
+    
+    .small-image-wrapper {
+        flex: 0 0 100px !important;
+        height: 80px !important;
+    }
+    
+    .property-title-section h1 {
+        font-size: 1.1rem !important;
+    }
+    
+    .booking-card {
+        padding: 15px !important;
+    }
+    
+    .price-amount {
+        font-size: 1.3rem !important;
+    }
+    
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .book-now-floating {
+        bottom: 15px !important;
+        left: 10px !important;
+        right: 10px !important;
+        padding: 12px !important;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .booking-card {
+        max-height: 90vh !important;
+    }
+    
+    .property-images-grid {
+        grid-template-columns: 2fr 1fr !important;
+        height: 300px !important;
+    }
+    
+    .images-column-small {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(3, 1fr) !important;
+        height: 100% !important;
+    }
+}
