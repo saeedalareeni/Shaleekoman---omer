@@ -23,6 +23,11 @@
     }
     $shFeatures = array_slice($shFeatures, 0, 3);
 
+    $shDiscount = 0;
+    if ($chalet->default_day_price && $chalet->holiday_day_price && $chalet->holiday_day_price > $chalet->default_day_price) {
+        $shDiscount = round((($chalet->holiday_day_price - $chalet->default_day_price) / $chalet->holiday_day_price) * 100);
+    }
+
     $shIsFav = auth('customer')->check() && auth('customer')->user()->wishlist->contains($chalet->id);
     $shTitle = app()->getLocale() == 'ar' ? ($chalet->chalet_name_ar ?: $chalet->chalet_name_en) : ($chalet->chalet_name_en ?: $chalet->chalet_name_ar);
     $shLocation = trim(($chalet->city->name ?? '') . (($chalet->area->name ?? null) ? ' / ' . $chalet->area->name : ''));
@@ -30,6 +35,9 @@
 <a href="{{ route('showChalet', $chalet->slug) }}" class="shaleek-prop-card" style="text-decoration:none;">
     <div class="shaleek-prop-image">
         <img src="{{ $shImg }}" alt="{{ $shTitle }}" loading="lazy">
+        @if($shDiscount > 0)
+            <div class="shaleek-prop-badge">{{ $shDiscount }}% {{ app()->getLocale() == 'ar' ? 'خصم' : 'off' }}</div>
+        @endif
         <button type="button" class="shaleek-prop-fav {{ $shIsFav ? 'active' : '' }}" onclick="event.preventDefault(); event.stopPropagation(); shaleekToggleWishlist(this, '{{ route('wishlist.toggle', $chalet->id) }}')" aria-label="{{ app()->getLocale() == 'ar' ? 'حفظ' : 'Save' }}">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         </button>
