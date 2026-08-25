@@ -38,7 +38,10 @@
     
     <!-- Arabic Font Styles (cache-busted) -->
     <link rel="stylesheet" href="{{ asset('frontend/css/arabic-font.css') }}?v={{ @filemtime(public_path('frontend/css/arabic-font.css')) ?: time() }}">
-    
+
+    <!-- Shaleek Design System (cache-busted) -->
+    <link rel="stylesheet" href="{{ asset('frontend/css/shaleek-design.css') }}?v={{ @filemtime(public_path('frontend/css/shaleek-design.css')) ?: time() }}">
+
     <style>
         /* Font Family Settings */
         @if(app()->getLocale() == 'ar')
@@ -337,17 +340,18 @@
     
     @yield('css')
 </head>
-<body>
-    @include('frontend.inc._weekend_header')
-    
+<body class="shaleek">
+    @include('frontend.inc._shaleek_header')
+
     <main class="main">
         @yield('content')
     </main>
-    
-    @include('frontend.inc._weekend_footer')
-    
+
+    @include('frontend.inc._shaleek_footer')
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+    <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
     
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
