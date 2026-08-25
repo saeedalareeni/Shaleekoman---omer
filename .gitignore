@@ -5,9 +5,13 @@
 /public/storage
 /storage/*.key
 /vendor
-#/.env
+/.env
 .env.backup
 .env.production
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitignore
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitignore
 Homestead.json
 Homestead.yaml
 auth.json
