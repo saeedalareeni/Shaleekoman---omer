@@ -516,6 +516,16 @@ html.shaleek-dark .shaleek-theme-toggle .icon-sun { display: block; }
 [dir="ltr"] .shaleek-prop-verified { left: auto; right: 12px; }
 .shaleek-prop-verified svg { width: 12px; height: 12px; }
 
+/* Property card — small-phone tightening (< 400px: stack price above actions,
+   make call/WhatsApp buttons equal-width so nothing overflows/squeezes) */
+@media (max-width: 400px) {
+  .shaleek-prop-footer { flex-direction: column; align-items: stretch; gap: 10px; }
+  .shaleek-prop-actions { width: 100%; }
+  .shaleek-prop-call, .shaleek-prop-cta { flex: 1; justify-content: center; padding: 10px 8px; }
+  .shaleek-prop-title { font-size: 15.5px; }
+  .shaleek-prop-price-current { font-size: 19px; }
+}
+
 /* ============ Why Shaleek ============ */
 .shaleek-why-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .shaleek-why-card { background: white; border-radius: var(--radius-lg); padding: 24px; border: 1px solid var(--ink-100); }
