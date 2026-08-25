@@ -274,6 +274,18 @@ class FrontendController extends Controller
             return $area->chalets_count > 0;
         });
 
+        // Build a chalets list per real category (used by the homepage category sections)
+        $chaletsByCategoryMap = [];
+        foreach ($categories as $cat) {
+            $chaletsByCategoryMap[$cat->id] = Chalet::where('status', 'approved')
+                ->where('category_id', $cat->id)
+                ->with(['images', 'city', 'area', 'category', 'reviews', 'owner'])
+                ->withAvg('reviews', 'rating')
+                ->orderBy('created_at', 'desc')
+                ->take(8)
+                ->get();
+        }
+
         // Get about section data
         $about = About::first();
 
@@ -289,6 +301,9 @@ class FrontendController extends Controller
         // Get all cities for filter
         $cities = City::all();
 
+        // Simple site-wide stats for the "why Shaleek" section
+        $totalApprovedCount = Chalet::where('status', 'approved')->count();
+        $totalGovernoratesCount = City::has('chalets')->count();
 
         return view('frontend.weekend-home', compact(
             'sliders',
@@ -299,13 +314,16 @@ class FrontendController extends Controller
             'chaletsByCategory',
             'farmsByCategory',
             'restHousesByCategory',
+            'chaletsByCategoryMap',
             'banners',
             'categories',
             'areas',
             'cities',
             'about',
             'contact',
-            'posts'
+            'posts',
+            'totalApprovedCount',
+            'totalGovernoratesCount'
         ));
     }
 

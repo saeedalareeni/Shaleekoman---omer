@@ -16,6 +16,8 @@
             }
         } catch (e) {}
     })();
+    window.shaleekLoggedIn = {{ auth('customer')->check() ? 'true' : 'false' }};
+    window.shaleekLoginUrl = @json(LaravelLocalization::localizeUrl('/login'));
 </script>
 
 <header class="shaleek-header">

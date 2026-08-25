@@ -10,6 +10,24 @@ function shaleekToggleTheme() {
     try { localStorage.setItem('shaleek-theme', isDark ? 'dark' : 'light'); } catch (e) {}
 }
 
+function shaleekToggleWishlist(btn, url) {
+    if (!window.shaleekLoggedIn) {
+        window.location.href = window.shaleekLoginUrl || '/';
+        return;
+    }
+    var csrfMeta = document.querySelector('meta[name="csrf-token"]');
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': csrfMeta ? csrfMeta.content : '',
+            'Accept': 'application/json'
+        }
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) { btn.classList.toggle('active', data.status === 'added'); })
+    .catch(function () {});
+}
+
 function shaleekOpenFilters() {
     var sheet = document.getElementById('shaleekFilterSheet');
     if (sheet) sheet.classList.add('open');
