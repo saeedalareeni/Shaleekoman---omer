@@ -21,7 +21,7 @@
 </script>
 
 <header class="shaleek-header">
-    <div class="container shaleek-header-inner">
+    <div class="shaleek-header-inner">
         <a href="{{ route('shaleek.home') }}" class="shaleek-logo">
             <span class="shaleek-logo-mark">
                 @if($siteLogo ?? false)
