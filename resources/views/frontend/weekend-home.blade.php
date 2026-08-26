@@ -35,16 +35,16 @@
             <div class="shaleek-hero-bg"></div>
             <div class="container shaleek-hero-inner">
                 <div class="shaleek-hero-eyebrow">
-                    {{ app()->getLocale() == 'ar' ? 'منصة حجز موثوقة في سلطنة عُمان' : 'A trusted booking platform in Oman' }}
+                    {{ app()->getLocale() == 'ar' ? 'منصة عرض — لا نوفر خدمة حجوزات' : 'A listing platform — bookings are not provided' }}
                 </div>
                 <h1>
                     {{ app()->getLocale() == 'ar' ? 'مكانك المثالي في عُمان،' : 'Your perfect place in Oman,' }}<br>
-                    <span class="accent">{{ app()->getLocale() == 'ar' ? 'على بُعد حجز واحد' : 'just one booking away' }}</span>
+                    <span class="accent">{{ app()->getLocale() == 'ar' ? 'على بُعد رسالة واتساب' : 'just one WhatsApp message away' }}</span>
                 </h1>
                 <p class="shaleek-hero-sub">
                     {{ app()->getLocale() == 'ar'
-                        ? 'اكتشف استراحات وشاليهات ومزارع وقاعات أفراح من جميع محافظات السلطنة، واحجز مباشرةً أو تواصل مع مالك العقار.'
-                        : 'Discover chalets, farms, rest houses and wedding halls across every governorate of Oman — book directly or contact the owner.' }}
+                        ? 'اكتشف استراحات وشاليهات ومزارع وقاعات أفراح من جميع محافظات السلطنة، وتواصل مباشرةً مع مالك العقار.'
+                        : 'Discover chalets, farms, rest houses and wedding halls across every governorate of Oman, then contact the property owner directly.' }}
                 </p>
 
                 <form class="shaleek-search-panel" method="GET" action="{{ route('showAllChalet') }}">
@@ -70,7 +70,7 @@
                         <div class="shaleek-search-field">
                             <label class="shaleek-search-field-label">{{ app()->getLocale() == 'ar' ? 'المنطقة' : 'Area' }}</label>
                             <select name="area" id="shHeroArea">
-                                <option value="0">{{ app()->getLocale() == 'ar' ? 'كل المناطق' : 'All areas' }}</option>
+                                <option value="0">{{ app()->getLocale() == 'ar' ? 'اختر المحافظة أولاً' : 'Choose a governorate first' }}</option>
                                 @foreach($areas as $area)
                                     <option value="{{ $area->id }}" data-city="{{ $area->city_id }}">{{ $area->name }}</option>
                                 @endforeach
@@ -102,7 +102,7 @@
                 <div class="shaleek-section-header">
                     <div class="shaleek-section-title-group">
                         <div class="shaleek-section-eyebrow">{{ app()->getLocale() == 'ar' ? 'الأقسام' : 'Categories' }}</div>
-                        <p class="shaleek-section-desc">{{ app()->getLocale() == 'ar' ? 'اختر ما يناسب مناسبتك من بين أقسام المنصة' : 'Choose the category that fits your occasion' }}</p>
+                        <p class="shaleek-section-desc">{{ app()->getLocale() == 'ar' ? 'اختر ما يناسب مناسبتك من بين خمسة أقسام رئيسية' : 'Choose what fits your occasion from five main categories' }}</p>
                     </div>
                 </div>
 
@@ -132,12 +132,22 @@
 
         <!-- Per-category listing sections -->
         @foreach($categories as $index => $cat)
-            @php $catChalets = $chaletsByCategoryMap[$cat->id] ?? collect(); @endphp
+            @php
+                $catChalets = $chaletsByCategoryMap[$cat->id] ?? collect();
+                $shCategoryEyebrows = [
+                    app()->getLocale() == 'ar' ? 'للعائلات والإجازات' : 'For families and holidays',
+                    app()->getLocale() == 'ar' ? 'في أحضان الطبيعة' : 'In nature',
+                    app()->getLocale() == 'ar' ? 'لمغامرات البر' : 'For outdoor trips',
+                    app()->getLocale() == 'ar' ? 'لمناسبتك المميزة' : 'For your special occasion',
+                    app()->getLocale() == 'ar' ? 'للسيدات فقط' : 'For women',
+                ];
+            @endphp
             @if($catChalets->count())
                 <section class="shaleek-section" @if($index % 2 == 0) style="background: white;" @endif>
                     <div class="container">
                         <div class="shaleek-section-header">
                             <div class="shaleek-section-title-group">
+                                <div class="shaleek-section-eyebrow">{{ $shCategoryEyebrows[$index] ?? (app()->getLocale() == 'ar' ? 'اختيارات شاليك' : 'Shaleek picks') }}</div>
                                 <h2 class="shaleek-section-title">{{ $cat->name }}</h2>
                             </div>
                             <a href="{{ route('showAllChalet', ['category' => $cat->id]) }}" class="shaleek-section-link">{{ app()->getLocale() == 'ar' ? 'عرض الكل' : 'View all' }}</a>
@@ -158,7 +168,7 @@
                 <div class="shaleek-section-header">
                     <div class="shaleek-section-title-group">
                         <div class="shaleek-section-eyebrow">{{ app()->getLocale() == 'ar' ? 'لماذا شاليك' : 'Why Shaleek' }}</div>
-                        <h2 class="shaleek-section-title">{{ app()->getLocale() == 'ar' ? 'منصة الحجز الأبسط في عُمان' : 'The simplest booking platform in Oman' }}</h2>
+                        <h2 class="shaleek-section-title">{{ app()->getLocale() == 'ar' ? 'منصة العرض الأبسط في عُمان' : 'The simplest listing platform in Oman' }}</h2>
                     </div>
                 </div>
 
@@ -167,8 +177,8 @@
                         <div class="shaleek-why-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                         </div>
-                        <h3 class="shaleek-why-title">{{ app()->getLocale() == 'ar' ? 'حجز وتواصل مباشر' : 'Direct booking & contact' }}</h3>
-                        <p class="shaleek-why-desc">{{ app()->getLocale() == 'ar' ? 'احجز مباشرةً عبر المنصة، أو تواصل مع مالك العقار على الواتساب أو الاتصال — الخيار لك.' : 'Book directly through the platform, or reach the owner on WhatsApp or by phone — the choice is yours.' }}</p>
+                        <h3 class="shaleek-why-title">{{ app()->getLocale() == 'ar' ? 'تواصل مباشر بدون وسيط' : 'Direct contact, no middleman' }}</h3>
+                        <p class="shaleek-why-desc">{{ app()->getLocale() == 'ar' ? 'تتحدث مع مالك العقار مباشرة عبر الواتساب أو الاتصال — لا رسوم خفية ولا حجوزات معلقة.' : 'Talk to the owner directly by WhatsApp or phone, with no hidden fees or pending platform bookings.' }}</p>
                     </div>
 
                     <div class="shaleek-why-card">
@@ -176,7 +186,7 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
                         </div>
                         <h3 class="shaleek-why-title">{{ app()->getLocale() == 'ar' ? 'عقارات معتمدة' : 'Verified listings' }}</h3>
-                        <p class="shaleek-why-desc">{{ app()->getLocale() == 'ar' ? 'منصة مرخصة من وزارة التجارة (معروف ٦٠٩)، ونراجع بيانات كل عقار قبل نشره.' : 'A platform licensed by the Ministry of Commerce (Maroof 609); every listing is reviewed before publishing.' }}</p>
+                        <p class="shaleek-why-desc">{{ app()->getLocale() == 'ar' ? 'منصة مرخصة من وزارة التجارة (معروف ٦٠٩)، نراجع بيانات كل مالك قبل النشر.' : 'A platform licensed by the Ministry of Commerce (Maroof 609); owner information is reviewed before publishing.' }}</p>
                     </div>
 
                     <div class="shaleek-why-card">
@@ -186,15 +196,15 @@
                         <h3 class="shaleek-why-title">{{ app()->getLocale() == 'ar' ? 'تغطية شاملة للسلطنة' : 'Nationwide coverage' }}</h3>
                         <p class="shaleek-why-desc">
                             {{ app()->getLocale() == 'ar'
-                                ? 'من مسقط إلى ظفار — أكثر من ' . number_format($totalApprovedCount) . ' عقاراً موزعة على ' . $totalGovernoratesCount . ' محافظة.'
-                                : 'From Muscat to Dhofar — over ' . number_format($totalApprovedCount) . ' listings across ' . $totalGovernoratesCount . ' governorates.' }}
+                                ? 'من مسقط إلى ظفار، ومن مسندم إلى الوسطى — أكثر من ' . number_format($totalApprovedCount) . ' عقاراً موزعة على ' . $totalGovernoratesCount . ' محافظة.'
+                                : 'From Muscat to Dhofar, and from Musandam to Al Wusta — over ' . number_format($totalApprovedCount) . ' listings across ' . $totalGovernoratesCount . ' governorates.' }}
                         </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Trust & how it works -->
+        <!-- Disclaimer -->
         <section class="shaleek-disclaimer-section">
             <div class="container">
                 <div class="shaleek-disclaimer-card">
@@ -203,22 +213,38 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                         </div>
                         <div>
-                            <div class="shaleek-disclaimer-eyebrow">{{ app()->getLocale() == 'ar' ? 'كيف تعمل شاليك' : 'How Shaleek works' }}</div>
-                            <div class="shaleek-disclaimer-title">{{ app()->getLocale() == 'ar' ? 'تصفّح، احجز، أو تواصل مباشرة مع المالك' : 'Browse, book, or contact the owner directly' }}</div>
+                            <div class="shaleek-disclaimer-eyebrow">{{ app()->getLocale() == 'ar' ? 'تنويه هام' : 'Important notice' }}</div>
+                            <div class="shaleek-disclaimer-title">{{ app()->getLocale() == 'ar' ? 'شاليك منصة عرض فقط — لا نوفر خدمة حجوزات' : 'Shaleek is a listing platform only — bookings are not provided' }}</div>
                         </div>
                     </div>
                     <div class="shaleek-disclaimer-body">
                         <p>
                             {{ app()->getLocale() == 'ar'
-                                ? 'شاليك منصة عُمانية تجمع أصحاب الشاليهات والاستراحات والمزارع وقاعات الأفراح مع الباحثين عنها. يمكنك تصفّح العقارات ومقارنة الأسعار، ثم '
-                                : 'Shaleek is an Omani platform connecting chalet, farm, rest house and wedding hall owners with guests. Browse listings, compare prices, and either ' }}
-                            <strong>{{ app()->getLocale() == 'ar' ? 'إتمام الحجز والدفع مباشرة عبر المنصة' : 'complete your booking and payment directly through the platform' }}</strong>
-                            {{ app()->getLocale() == 'ar' ? '، أو التواصل مع مالك العقار عبر الواتساب أو الاتصال للاتفاق على التفاصيل مباشرة.' : ', or contact the property owner on WhatsApp or by phone to arrange the details yourself.' }}
+                                ? 'منصة شاليك هي منصة إلكترونية عُمانية متخصصة في عرض وإدراج معلومات الشاليهات والاستراحات والمزارع وقاعات الأفراح والصالونات النسائية في مختلف محافظات سلطنة عُمان. دورنا الأساسي والوحيد يقتصر على إتاحة المجال لأصحاب العقارات لعرض عقاراتهم بصور واضحة وأوصاف تفصيلية ومعلومات تواصل، مع تمكين الزوار من تصفح هذه العقارات والاطلاع على تفاصيلها قبل التواصل مباشرةً مع المُلاك عبر أرقامهم المُدرجة في صفحة كل عقار.'
+                                : 'Shaleek is an Omani online platform specialized in listing chalets, rest houses, farms, wedding halls and women salons across the governorates of Oman. Our role is limited to helping owners present their properties with clear photos, descriptions and contact details, so visitors can browse and contact owners directly.' }}
                         </p>
                         <p>
                             {{ app()->getLocale() == 'ar'
-                                ? 'نراجع بيانات كل عقار وصاحبه قبل النشر، لكن تفاصيل العقار وحالته الفعلية تبقى مسؤولية مالك العقار. ننصح دائمًا بمراجعة كل التفاصيل (المرافق، مواعيد الدخول والخروج، شروط الإلغاء) قبل تأكيد الحجز.'
-                                : 'We review every listing and owner before publishing, but the property\'s actual condition remains the owner\'s responsibility. Always review the details — amenities, check-in/out times, cancellation terms — before confirming your booking.' }}
+                                ? 'نؤكد بوضوح تام أن '
+                                : 'We clearly state that ' }}
+                            <strong>{{ app()->getLocale() == 'ar' ? 'منصة شاليك لا توفر خدمة حجوزات إلكترونية' : 'Shaleek does not provide online booking services' }}</strong>
+                            {{ app()->getLocale() == 'ar'
+                                ? ' أو مدفوعات رقمية، ولا تعمل كوسيط بين المستخدم والمالك في أي مرحلة من مراحل التعامل. جميع عمليات الحجز والاتفاق على الأسعار والمواعيد وشروط الاستخدام تتم مباشرةً بين المستخدم ومالك العقار، دون تدخل أو ضمان من قِبل المنصة، سواء عبر الواتساب أو الاتصال الهاتفي أو أي وسيلة تواصل أخرى.'
+                                : ' or digital payments, and does not act as a broker between users and owners at any stage. All reservations, price agreements, dates and terms are arranged directly between the user and the property owner, without platform involvement or guarantee.' }}
+                        </p>
+                        <p>
+                            {{ app()->getLocale() == 'ar'
+                                ? 'وبناءً على ما سبق، فإن '
+                                : 'Accordingly, ' }}
+                            <strong>{{ app()->getLocale() == 'ar' ? 'منصة شاليك غير مسؤولة' : 'Shaleek is not responsible' }}</strong>
+                            {{ app()->getLocale() == 'ar'
+                                ? ' عن دقة تفاصيل الحجز أو مواعيده أو حالة العقار عند الوصول، ولا نتحمل أي التزام قانوني تجاه أي خلاف أو نزاع قد ينشأ بين المستخدم والمالك، سواء تعلّق الخلاف بالسعر أو المرافق أو مدة الإقامة أو جودة الخدمة المُقدَّمة أو أي جانب آخر من جوانب التعامل بين الطرفين.'
+                                : ' for booking details, timing, property condition on arrival, or any dispute between the user and the owner regarding price, amenities, stay duration, service quality or any other matter agreed directly between both parties.' }}
+                        </p>
+                        <p>
+                            {{ app()->getLocale() == 'ar'
+                                ? 'ننصح جميع الزوار بالتحقق من كافة التفاصيل مع مالك العقار قبل تأكيد أي حجز أو دفع أي مبلغ مالي، وتوثيق كامل الاتفاق كتابياً عبر الرسائل. كما ننصح أصحاب العقارات بتحديث معلوماتهم بشكل دوري وتقديم بيانات دقيقة تعكس الواقع. تجدر الإشارة إلى أن منصة شاليك لا تتقاضى أي عمولات أو رسوم على الحجوزات، ونعمل على تقديم خدمة عرض مجانية تخدم قطاع السياحة الداخلية في السلطنة.'
+                                : 'We advise visitors to verify all details with the owner before confirming any reservation or payment, and to keep the agreement documented in writing. Owners are encouraged to keep their information updated and accurate. Shaleek does not charge booking commissions or fees and provides a listing service for local tourism in Oman.' }}
                         </p>
                     </div>
                 </div>

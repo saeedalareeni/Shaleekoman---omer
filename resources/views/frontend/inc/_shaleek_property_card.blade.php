@@ -32,18 +32,18 @@
     $shTitle = app()->getLocale() == 'ar' ? ($chalet->chalet_name_ar ?: $chalet->chalet_name_en) : ($chalet->chalet_name_en ?: $chalet->chalet_name_ar);
     $shLocation = trim(($chalet->city->name ?? '') . (($chalet->area->name ?? null) ? ' / ' . $chalet->area->name : ''));
 @endphp
-<a href="{{ route('showChalet', $chalet->slug) }}" class="shaleek-prop-card" style="text-decoration:none;">
+<article class="shaleek-prop-card" onclick="window.location.href='{{ route('showChalet', $chalet->slug) }}'">
     <div class="shaleek-prop-image">
         <img src="{{ $shImg }}" alt="{{ $shTitle }}" loading="lazy">
         @if($shDiscount > 0)
-            <div class="shaleek-prop-badge">{{ $shDiscount }}% {{ app()->getLocale() == 'ar' ? 'خصم' : 'off' }}</div>
+            <div class="shaleek-prop-badge">{{ app()->getLocale() == 'ar' ? 'خصم ' . $shDiscount . '%' : $shDiscount . '% off' }}</div>
         @endif
-        <button type="button" class="shaleek-prop-fav {{ $shIsFav ? 'active' : '' }}" onclick="event.preventDefault(); event.stopPropagation(); shaleekToggleWishlist(this, '{{ route('wishlist.toggle', $chalet->id) }}')" aria-label="{{ app()->getLocale() == 'ar' ? 'حفظ' : 'Save' }}">
+        <button type="button" class="shaleek-prop-fav {{ $shIsFav ? 'active' : '' }}" onclick="event.stopPropagation(); shaleekToggleWishlist(this, '{{ route('wishlist.toggle', $chalet->id) }}')" aria-label="{{ app()->getLocale() == 'ar' ? 'حفظ' : 'Save' }}">
             <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
         </button>
         <span class="shaleek-prop-cat-tag">{{ $chalet->category->name ?? '' }}</span>
         @if($chalet->is_feature)
-            <span class="shaleek-prop-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 1.8 3 .1 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15l1-2.8-1-2.8 2.4-1.8 1-2.8 3-.1z"/><path d="M9.5 12.5l1.8 1.8 3.5-3.7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ app()->getLocale() == 'ar' ? 'مميّز' : 'Featured' }}</span>
+            <span class="shaleek-prop-verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 1.8 3 .1 1 2.8 2.4 1.8-1 2.8 1 2.8-2.4 1.8-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8L3.2 15l1-2.8-1-2.8 2.4-1.8 1-2.8 3-.1z"/><path d="M9.5 12.5l1.8 1.8 3.5-3.7" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>{{ app()->getLocale() == 'ar' ? 'موثّق' : 'Verified' }}</span>
         @endif
     </div>
     <div class="shaleek-prop-body">
@@ -87,4 +87,4 @@
             </div>
         </div>
     </div>
-</a>
+</article>

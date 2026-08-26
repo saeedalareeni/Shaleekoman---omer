@@ -676,7 +676,19 @@ class FrontendController extends Controller
         $chalet = Chalet::where('slug', $slug)->firstOrFail();
         // تسجيل مشاهدة الشاليه
         trackChaletView($chalet->id);
-        return view('frontend.pages.chalets.show', compact('chalet'));
+
+        $similarChalets = Chalet::where('status', 'approved')
+            ->where('id', '!=', $chalet->id)
+            ->where(function ($q) use ($chalet) {
+                $q->where('category_id', $chalet->category_id)
+                    ->orWhere('city_id', $chalet->city_id);
+            })
+            ->with(['images', 'city', 'area', 'category', 'owner'])
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return view('frontend.pages.chalets.show', compact('chalet', 'similarChalets'));
     }
 
     public function ownerChalets($ownerId)
