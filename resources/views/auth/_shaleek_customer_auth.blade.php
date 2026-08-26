@@ -17,37 +17,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/shaleek-design.css') }}?v={{ @filemtime(public_path('frontend/css/shaleek-design.css')) ?: time() }}">
 </head>
 <body class="shaleek">
-    <script>
-        (function () {
-            try {
-                if (localStorage.getItem('shaleek-theme') === 'dark') {
-                    document.documentElement.classList.add('shaleek-dark');
-                }
-            } catch (e) {}
-        })();
-    </script>
-
-    <header class="shaleek-header">
-        <div class="container shaleek-header-inner">
-            <a href="{{ route('shaleek.home') }}" class="shaleek-logo">
-                <span class="shaleek-logo-mark">
-                    @if($siteLogo ?? false)
-                        <img src="{{ $siteLogo }}" alt="{{ $siteName ?? 'شاليك' }}">
-                    @else
-                        ش
-                    @endif
-                </span>
-                <span>{{ $siteName ?? 'شاليك' }}</span>
-            </a>
-            <div class="shaleek-header-actions">
-                <a href="{{ LaravelLocalization::getLocalizedURL($isArabic ? 'en' : 'ar', null, [], true) }}" class="shaleek-lang-switch">{{ $isArabic ? 'EN' : 'AR' }}</a>
-                <button type="button" class="shaleek-theme-toggle" onclick="shaleekToggleTheme()" aria-label="{{ $isArabic ? 'الوضع الليلي' : 'Dark mode' }}">
-                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                </button>
-            </div>
-        </div>
-    </header>
+    @include('frontend.inc._shaleek_header')
 
     <main>
         <div class="shaleek-auth-page">
@@ -85,8 +55,8 @@
             <div class="shaleek-auth-form-pane">
                 <div class="shaleek-auth-card">
                     <div class="shaleek-auth-tabs">
-                        <button type="button" class="shaleek-auth-tab {{ $activeTab == 'register' ? 'active' : '' }}" onclick="window.location.href='{{ route('customer_register') }}'">{{ $isArabic ? 'حساب جديد' : 'New account' }}</button>
-                        <button type="button" class="shaleek-auth-tab {{ $activeTab == 'login' ? 'active' : '' }}" onclick="window.location.href='{{ route('login') }}'">{{ $isArabic ? 'تسجيل الدخول' : 'Log in' }}</button>
+                        <button type="button" class="shaleek-auth-tab {{ $activeTab == 'register' ? 'active' : '' }}" data-tab="register" data-url="{{ route('customer_register') }}" onclick="shSetAuthTab('register')">{{ $isArabic ? 'حساب جديد' : 'New account' }}</button>
+                        <button type="button" class="shaleek-auth-tab {{ $activeTab == 'login' ? 'active' : '' }}" data-tab="login" data-url="{{ route('login') }}" onclick="shSetAuthTab('login')">{{ $isArabic ? 'تسجيل الدخول' : 'Log in' }}</button>
                     </div>
 
                     @if(session('success'))
@@ -105,8 +75,7 @@
                         </div>
                     @endif
 
-                    @if($activeTab == 'register')
-                        <form class="shaleek-auth-form active" method="POST" action="{{ route('customer_register_store') }}">
+                    <form class="shaleek-auth-form {{ $activeTab == 'register' ? 'active' : '' }}" data-form="register" method="POST" action="{{ route('customer_register_store') }}">
                             @csrf
                             <div class="shaleek-auth-field">
                                 <label>{{ $isArabic ? 'الاسم الكامل' : 'Full name' }} <span class="req">*</span></label>
@@ -146,11 +115,11 @@
 
                             <div class="shaleek-auth-switch-hint" style="margin-top:16px;">
                                 {{ $isArabic ? 'لديك حساب بالفعل؟' : 'Already have an account?' }}
-                                <a href="{{ route('login') }}">{{ $isArabic ? 'سجّل دخولك' : 'Log in' }}</a>
+                                <a href="{{ route('login') }}" onclick="event.preventDefault(); shSetAuthTab('login')">{{ $isArabic ? 'سجّل دخولك' : 'Log in' }}</a>
                             </div>
                         </form>
-                    @else
-                        <form class="shaleek-auth-form active" method="POST" action="{{ route('customer_store') }}">
+
+                    <form class="shaleek-auth-form {{ $activeTab == 'login' ? 'active' : '' }}" data-form="login" method="POST" action="{{ route('customer_store') }}">
                             @csrf
                             <div class="shaleek-auth-field">
                                 <label>{{ $isArabic ? 'البريد الإلكتروني' : 'Email' }} <span class="req">*</span></label>
@@ -181,10 +150,9 @@
 
                             <div class="shaleek-auth-switch-hint" style="margin-top:16px;">
                                 {{ $isArabic ? 'ليس لديك حساب؟' : "Don't have an account?" }}
-                                <a href="{{ route('customer_register') }}">{{ $isArabic ? 'أنشئ حساباً جديداً' : 'Create one' }}</a>
+                                <a href="{{ route('customer_register') }}" onclick="event.preventDefault(); shSetAuthTab('register')">{{ $isArabic ? 'أنشئ حساباً جديداً' : 'Create one' }}</a>
                             </div>
                         </form>
-                    @endif
 
                     <div class="shaleek-auth-note">
                         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
@@ -199,6 +167,23 @@
 
     <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
     <script>
+        function shSetAuthTab(tab) {
+            document.querySelectorAll('.shaleek-auth-tab').forEach(function (el) {
+                el.classList.toggle('active', el.dataset.tab === tab);
+            });
+            document.querySelectorAll('.shaleek-auth-form').forEach(function (el) {
+                el.classList.toggle('active', el.dataset.form === tab);
+            });
+            var url = document.querySelector('.shaleek-auth-tab[data-tab="' + tab + '"]').dataset.url;
+            if (url && window.location.href !== url) {
+                window.history.pushState({ tab: tab }, '', url);
+            }
+        }
+        window.addEventListener('popstate', function () {
+            var path = window.location.pathname;
+            shSetAuthTab(path.indexOf('register') !== -1 ? 'register' : 'login');
+        });
+
         function shWirePwToggle(btnId, inputId) {
             var btn = document.getElementById(btnId);
             if (!btn) return;

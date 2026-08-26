@@ -143,7 +143,7 @@
                 ];
             @endphp
             @if($catChalets->count())
-                <section class="shaleek-section" @if($index % 2 == 0) style="background: white;" @endif>
+                <section class="shaleek-section">
                     <div class="container">
                         <div class="shaleek-section-header">
                             <div class="shaleek-section-title-group">
