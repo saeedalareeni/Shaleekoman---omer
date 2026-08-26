@@ -81,8 +81,13 @@
   background: rgba(251, 248, 241, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(11, 79, 66, 0.08);
+  border: none !important;
+  border-bottom: 1px solid rgba(11, 79, 66, 0.08) !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
   height: var(--header-h);
+  font-family: 'Cairo', sans-serif;
 }
 
 .shaleek-header-inner {
