@@ -613,6 +613,26 @@ html.shaleek-dark .shaleek-theme-toggle .icon-sun { display: block; }
 .shaleek-gallery-thumbs-btn { position: absolute; bottom: 16px; left: 16px; padding: 8px 14px; background: rgba(255,255,255,0.95); border: none; border-radius: 10px; font-size: 12px; font-weight: 700; color: var(--ink-900); display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); }
 [dir="ltr"] .shaleek-gallery-thumbs-btn { left: auto; right: 16px; }
 .shaleek-gallery-thumbs-btn svg { width: 14px; height: 14px; }
+
+.shaleek-lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(10, 20, 17, 0.95); align-items: center; justify-content: center; }
+.shaleek-lightbox.active { display: flex; }
+.shaleek-lightbox-img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; }
+.shaleek-lightbox-close { position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; border: none; border-radius: 50%; background: rgba(255,255,255,0.12); color: white; font-size: 18px; cursor: pointer; display: grid; place-items: center; }
+[dir="ltr"] .shaleek-lightbox-close { left: auto; right: 20px; }
+.shaleek-lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border: none; border-radius: 50%; background: rgba(255,255,255,0.12); color: white; cursor: pointer; display: grid; place-items: center; }
+.shaleek-lightbox-nav svg { width: 22px; height: 22px; }
+.shaleek-lightbox-prev { right: 20px; }
+.shaleek-lightbox-next { left: 20px; }
+[dir="ltr"] .shaleek-lightbox-prev { right: auto; left: 20px; }
+[dir="ltr"] .shaleek-lightbox-next { left: auto; right: 20px; }
+.shaleek-lightbox-count { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); color: white; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 700; }
+@media (max-width: 640px) {
+  .shaleek-lightbox-nav { width: 38px; height: 38px; }
+  .shaleek-lightbox-prev { right: 8px; }
+  .shaleek-lightbox-next { left: 8px; }
+  [dir="ltr"] .shaleek-lightbox-prev { left: 8px; }
+  [dir="ltr"] .shaleek-lightbox-next { right: 8px; }
+}
 .shaleek-detail-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
 .shaleek-detail-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
 .shaleek-detail-cat-badge { display: inline-block; padding: 4px 12px; background: var(--green-50); color: var(--green-700); border-radius: 99px; font-size: 11px; font-weight: 700; margin-bottom: 12px; }

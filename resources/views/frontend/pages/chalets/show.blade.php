@@ -107,16 +107,29 @@
             <section class="shaleek-detail-hero">
                 <!-- Gallery -->
                 <div class="shaleek-gallery">
-                    <img src="{{ $shMainImage }}" alt="{{ $shTitle }}">
-                    @foreach($shSecondaryImages as $shImg)
-                        <img class="shaleek-gallery-secondary" src="{{ $shImg }}" alt="">
+                    <img src="{{ $shMainImage }}" alt="{{ $shTitle }}" style="cursor:pointer;" onclick="shOpenGallery(0)">
+                    @foreach($shSecondaryImages as $shI => $shImg)
+                        <img class="shaleek-gallery-secondary" src="{{ $shImg }}" alt="" style="cursor:pointer;" onclick="shOpenGallery({{ $shI + 1 }})">
                     @endforeach
                     @if($shImages->count() > 1)
-                        <button type="button" class="shaleek-gallery-thumbs-btn">
+                        <button type="button" class="shaleek-gallery-thumbs-btn" onclick="shOpenGallery(0)">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
                             {{ $isArabic ? 'عرض جميع الصور (' . $shImages->count() . ')' : 'View all photos (' . $shImages->count() . ')' }}
                         </button>
                     @endif
+                </div>
+
+                <!-- Fullscreen gallery lightbox -->
+                <div class="shaleek-lightbox" id="shLightbox" onclick="if(event.target===this) shCloseGallery()">
+                    <button type="button" class="shaleek-lightbox-close" onclick="shCloseGallery()" aria-label="{{ $isArabic ? 'إغلاق' : 'Close' }}">✕</button>
+                    <button type="button" class="shaleek-lightbox-nav shaleek-lightbox-prev" onclick="shShiftGallery(-1)" aria-label="{{ $isArabic ? 'السابق' : 'Previous' }}">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <img class="shaleek-lightbox-img" id="shLightboxImg" src="" alt="{{ $shTitle }}">
+                    <button type="button" class="shaleek-lightbox-nav shaleek-lightbox-next" onclick="shShiftGallery(1)" aria-label="{{ $isArabic ? 'التالي' : 'Next' }}">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                    <div class="shaleek-lightbox-count" id="shLightboxCount"></div>
                 </div>
 
                 <div class="shaleek-detail-grid">
@@ -219,11 +232,7 @@
                             <div class="shaleek-sidebar-owner-title">{{ $isArabic ? 'مالك العقار' : 'Property owner' }}</div>
                             <div class="shaleek-owner-card" style="margin-bottom: 0;">
                                 <div class="shaleek-owner-avatar">
-                                    @if($shOwner && $shOwner->image)
-                                        <img src="{{ asset($shOwner->image) }}" alt="{{ $shOwnerName }}">
-                                    @else
-                                        {{ $shOwnerInitial }}
-                                    @endif
+                                    <img src="{{ ($shOwner && $shOwner->avatar_url) ? $shOwner->avatar_url : $shMainImage }}" alt="{{ $shOwnerName }}">
                                 </div>
                                 <div class="shaleek-owner-info">
                                     <div class="shaleek-owner-label">{{ $isArabic ? 'المضيف' : 'Host' }}</div>
@@ -346,5 +355,38 @@
     @include('frontend.inc._shaleek_footer')
 
     <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
+    <script>
+        var shGalleryImages = @json($shImages);
+        var shGalleryIndex = 0;
+
+        function shRenderGallery() {
+            document.getElementById('shLightboxImg').src = shGalleryImages[shGalleryIndex];
+            document.getElementById('shLightboxCount').textContent = (shGalleryIndex + 1) + ' / ' + shGalleryImages.length;
+        }
+
+        function shOpenGallery(index) {
+            shGalleryIndex = index || 0;
+            shRenderGallery();
+            document.getElementById('shLightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function shCloseGallery() {
+            document.getElementById('shLightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function shShiftGallery(dir) {
+            shGalleryIndex = (shGalleryIndex + dir + shGalleryImages.length) % shGalleryImages.length;
+            shRenderGallery();
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (!document.getElementById('shLightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') shCloseGallery();
+            if (e.key === 'ArrowLeft') shShiftGallery({{ $isArabic ? '1' : '-1' }});
+            if (e.key === 'ArrowRight') shShiftGallery({{ $isArabic ? '-1' : '1' }});
+        });
+    </script>
 </body>
 </html>

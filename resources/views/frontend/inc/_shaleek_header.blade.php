@@ -57,12 +57,9 @@
                         <span style="background:var(--red-500); color:#fff; border-radius:99px; font-size:10px; font-weight:800; padding:1px 6px; margin-{{ app()->getLocale() == 'ar' ? 'right' : 'left' }}:4px;">{{ $shCustomerUnread > 9 ? '9+' : $shCustomerUnread }}</span>
                     @endif
                 </a>
-            @else
-                <a href="{{ LaravelLocalization::localizeUrl('/login') }}" class="shaleek-btn-login">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
-                    {{ app()->getLocale() == 'ar' ? 'دخول المستخدمين' : 'User Login' }}
-                </a>
             @endauth
+            {{-- Visitors browse and contact owners directly — only property owners have
+                 accounts on Shaleek, so there's no separate "user login" entry point. --}}
 
             @auth('owner')
                 <a href="{{ route('owner.dashboard') }}" class="shaleek-btn-host">
@@ -126,8 +123,6 @@
                     @csrf
                     <button type="submit" style="width:100%; text-align:{{ app()->getLocale() == 'ar' ? 'right' : 'left' }}; border:none; background:none; padding:12px 16px; border-radius:12px; font-weight:500; color:var(--red-500);">{{ app()->getLocale() == 'ar' ? 'تسجيل الخروج' : 'Logout' }}</button>
                 </form>
-            @else
-                <a href="{{ LaravelLocalization::localizeUrl('/login') }}">{{ app()->getLocale() == 'ar' ? 'دخول المستخدمين' : 'User Login' }}</a>
             @endauth
             @auth('owner')
                 <a href="{{ route('owner.dashboard') }}">{{ app()->getLocale() == 'ar' ? 'لوحة تحكم المضيف' : 'Host Dashboard' }}</a>

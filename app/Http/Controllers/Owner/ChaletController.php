@@ -88,13 +88,15 @@ class ChaletController extends Controller
             'instagram_url'             => 'nullable|url|max:500',
             'tiktok_url'                => 'nullable|url|max:500',
 
-            'map_link'                  => 'required|url',
+            'map_link'                  => 'nullable|url',
 
-            'default_day_price'         => 'required|numeric|min:0',
-            'half_day_price'            => 'required|numeric|min:0',
-            'stay_price'                => 'required|numeric|min:0',
-            'holiday_day_price'         => 'required|numeric|min:0',
+            'default_day_price'         => 'nullable|numeric|min:0',
+            'half_day_price'            => 'nullable|numeric|min:0',
+            'stay_price'                => 'nullable|numeric|min:0',
+            'holiday_day_price'         => 'nullable|numeric|min:0',
             'insurance_amount'          => 'nullable|numeric|min:0',
+            'max_guests'                => 'nullable|integer|min:1',
+            'amenities'                 => 'nullable|array',
 
             'city_id'                  => 'required',
             'area_id'                  => 'required',
@@ -118,10 +120,14 @@ class ChaletController extends Controller
 
         $chalet->long_description_ar = $request->long_description_ar;
         $chalet->map_link = $request->map_link;
-        $chalet->default_day_price = $request->default_day_price;
-        $chalet->half_day_price = $request->half_day_price;
-        $chalet->stay_price = $request->stay_price;
-        $chalet->holiday_day_price = $request->holiday_day_price;
+        // The add-property form only asks for one "starting from" price (or none,
+        // for "contact for pricing"). Mirror it across all four date-based tiers
+        // so the rest of the pricing engine keeps working as-is; the owner can
+        // still split them out later from the prices page.
+        $chalet->default_day_price = $request->default_day_price ?: 0;
+        $chalet->half_day_price = $request->half_day_price ?: ($request->default_day_price ?: 0);
+        $chalet->stay_price = $request->stay_price ?: ($request->default_day_price ?: 0);
+        $chalet->holiday_day_price = $request->holiday_day_price ?: ($request->default_day_price ?: 0);
         $chalet->city_id                 = $request->city_id;
         $chalet->area_id                 = $request->area_id;
 

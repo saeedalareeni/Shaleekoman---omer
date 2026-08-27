@@ -61,7 +61,7 @@ Route::group(
             });
             Route::resource('chalets', ChaletController::class);
             Route::get('chalets/{id}/edit-json', [ChaletController::class, 'editJson'])->name('chalets.edit.json');
-            Route::post('/logout', [LoginOwnerController::class, 'destroy'])->middleware('auth')->name('logout');
+            Route::post('/logout', [LoginOwnerController::class, 'destroy'])->name('logout');
             Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
             Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
             Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

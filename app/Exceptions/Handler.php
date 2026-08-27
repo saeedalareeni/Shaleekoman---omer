@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -43,6 +44,25 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        // A CSRF token mismatch (session expired / stale tab) should never show the
+        // raw "419 Page Expired" screen — send the visitor back to where they were
+        // (or the right login screen) so a logout / form resubmit just works.
+        $this->renderable(function (TokenMismatchException $e, $request) {
+            if ($request->expectsJson()) {
+                return null;
+            }
+
+            $path = $request->path();
+            $redirectTo = str_contains($path, 'owner/')
+                ? route('owner.login')
+                : url()->previous();
+
+            return redirect($redirectTo)
+                ->with('error', app()->getLocale() == 'ar'
+                    ? 'انتهت صلاحية الجلسة، الرجاء المحاولة مرة أخرى.'
+                    : 'Your session has expired, please try again.');
         });
     }
 }

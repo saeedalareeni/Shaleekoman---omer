@@ -40,9 +40,9 @@ class SettingsServiceProvider extends ServiceProvider
 
             config([
                 'app.name' => $settings->getSiteNameAttribute() ?: config('app.name'),
-                'app.logo' => asset('assets/images/shaleek_logo.png'),
-                'app.logo_white' => asset('assets/images/shaleek_logo.png'),
-                'app.favicon' => asset('assets/images/shaleek_logo.png'),
+                'app.logo' => asset('assets/images/shaleek_logo.jpg'),
+                'app.logo_white' => asset('assets/images/shaleek_logo.jpg'),
+                'app.favicon' => asset('assets/images/shaleek_logo.jpg'),
                 'app.site_name_ar' => $settings->site_name_ar,
                 'app.site_name_en' => $settings->site_name_en,
                 'app.site_title' => $settings->getSiteTitleAttribute(),
@@ -87,9 +87,9 @@ class SettingsServiceProvider extends ServiceProvider
                     'siteTitle' => $siteTitle,
                     'siteDescription' => $siteDescription,
                     'siteMetaDescription' => $metaDescription,
-                    'siteLogo' => asset('assets/images/shaleek_logo.png'),
-                    'siteLogoWhite' => asset('assets/images/shaleek_logo.png'),
-                    'siteFavicon' => asset('assets/images/shaleek_logo.png'),
+                    'siteLogo' => asset('assets/images/shaleek_logo.jpg'),
+                    'siteLogoWhite' => asset('assets/images/shaleek_logo.jpg'),
+                    'siteFavicon' => asset('assets/images/shaleek_logo.jpg'),
                     'companyName' => $companyName,
                     'googleLoginEnabled' => $settings->google_login_enabled ?? false,
                 ]);
@@ -108,9 +108,9 @@ class SettingsServiceProvider extends ServiceProvider
                     'siteTitle' => $siteName,
                     'siteDescription' => $siteDescription,
                     'siteMetaDescription' => $siteDescription,
-                    'siteLogo' => asset('assets/images/shaleek_logo.png'),
-                    'siteLogoWhite' => asset('assets/images/shaleek_logo.png'),
-                    'siteFavicon' => asset('assets/images/shaleek_logo.png'),
+                    'siteLogo' => asset('assets/images/shaleek_logo.jpg'),
+                    'siteLogoWhite' => asset('assets/images/shaleek_logo.jpg'),
+                    'siteFavicon' => asset('assets/images/shaleek_logo.jpg'),
                     'companyName' => $siteName,
                     'googleLoginEnabled' => false,
                 ]);

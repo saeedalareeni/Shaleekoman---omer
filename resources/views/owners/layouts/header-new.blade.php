@@ -537,8 +537,9 @@
     <div class="header-content">
         <!-- Logo -->
         <div class="header-logo">
-            <a href="{{ route('owner.dashboard') }}">
-                <img src="{{ $siteLogo ?? asset('assets/images/shaleek_logo.png') }}" alt="Logo">
+            <a href="{{ route('shaleek.home') }}" style="display:flex; align-items:center; gap:8px;">
+                <img src="{{ $siteLogo ?? asset('assets/images/shaleek_logo.jpg') }}" alt="Logo">
+                <span>{{ app()->getLocale() == 'ar' ? 'الصفحة الرئيسية' : 'Home' }}</span>
             </a>
         </div>
         
@@ -703,7 +704,7 @@
             <!-- User Profile -->
             <div class="header-item user-profile">
                 <button class="header-btn" type="button" onclick="toggleDropdown(this, event)">
-                    <img src="{{ asset(auth()->user()->image ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=127664&color=fff') }}" alt="User" class="user-avatar">
+                    <img src="{{ auth()->user()->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=127664&color=fff' }}" alt="User" class="user-avatar">
                     <div class="user-info">
                         <span class="user-name">{{ auth()->user()->name }}</span>
                         <span class="user-role">صاحب عقارات</span>
@@ -715,7 +716,7 @@
                 <div class="dropdown-menu user-dropdown">
                     <div class="dropdown-header">
                         <div class="user-profile-info">
-                            <img src="{{ asset(auth()->user()->image ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=127664&color=fff') }}" alt="User" class="user-avatar-large">
+                            <img src="{{ auth()->user()->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=127664&color=fff' }}" alt="User" class="user-avatar-large">
                             <div class="user-details">
                                 <h6>{{ auth()->user()->name }}</h6>
                                 <small>{{ auth()->user()->email }}</small>

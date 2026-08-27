@@ -68,12 +68,7 @@
                     @if(!empty($contact_info->whatsapp))
                         <li><a href="https://wa.me/{{ preg_replace('/\D+/', '', $contact_info->whatsapp) }}" target="_blank" rel="noopener" style="direction: ltr; display: inline-block;">{{ app()->getLocale() == 'ar' ? 'واتساب: ' : 'WhatsApp: ' }}{{ $contact_info->whatsapp }}</a></li>
                     @endif
-                    @if(!empty($contact_info->phone))
-                        <li><a href="tel:{{ $contact_info->phone }}" style="direction: ltr; display: inline-block;">{{ app()->getLocale() == 'ar' ? 'هاتف: ' : 'Phone: ' }}{{ $contact_info->phone }}</a></li>
-                    @endif
-                    @if(!empty($contact_info->email))
-                        <li><a href="mailto:{{ $contact_info->email }}">{{ $contact_info->email }}</a></li>
-                    @endif
+                    <li><a href="mailto:info@shaleekoman.com">info@shaleekoman.com</a></li>
                 </ul>
             </div>
         </div>

@@ -143,9 +143,20 @@ Route::group(
 
 
     Route::middleware('guest:customer')->group(function () {
-        Route::get('login', [LoginCustomerController::class, 'customer_login'])->name('login');
+        // Only property owners have accounts on Shaleek — visitors browse and
+        // contact owners directly with no sign-up. These bare /login and
+        // /register URLs used to serve a customer-facing auth page; they now
+        // just forward to the owner login/register so old links still resolve
+        // somewhere useful. The customer auth backend below stays intact and
+        // reachable directly (customer_store/customer_register_store) in case
+        // it's needed again later — it's just no longer linked to from the UI.
+        Route::get('login', function () {
+            return redirect()->route('owner.login');
+        })->name('login');
         Route::post('store', [LoginCustomerController::class, 'customer_store'])->name('customer_store');
-        Route::get('register', [RegisteredCustomerController::class, 'create'])->name('customer_register');
+        Route::get('register', function () {
+            return redirect()->route('owner.register');
+        })->name('customer_register');
         Route::post('register', [RegisteredCustomerController::class, 'store'])->name('customer_register_store');
 
         Route::get('/user/forgot-password', function () {

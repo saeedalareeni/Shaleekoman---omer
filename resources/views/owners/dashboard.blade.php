@@ -1303,8 +1303,8 @@
                                     </div>
                                     <div class="card-body text-center">
                                         <div class="mb-3">
-                                            <img id="profile-preview" 
-                                                 src="{{ asset(auth()->user()->image ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=127664&color=fff&size=200') }}" 
+                                            <img id="profile-preview"
+                                                 src="{{ auth()->user()->avatar_url ?? 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=127664&color=fff&size=200' }}"
                                                  alt="Profile" 
                                                  class="rounded-circle"
                                                  style="width: 150px; height: 150px; object-fit: cover; border: 4px solid #127664;">
