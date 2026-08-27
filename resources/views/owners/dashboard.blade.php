@@ -1353,9 +1353,9 @@
                     <div class="properties-content p-4">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h3>عقاراتي</h3>
-                            <button class="btn btn-success" onclick="openAddPropertyModal()">
+                            <a href="{{ route('owner.chalets.create') }}" class="btn btn-success">
                                 <i class="fas fa-plus"></i> إضافة عقار جديد
-                            </button>
+                            </a>
                         </div>
                         
                         <div class="row">
@@ -3601,8 +3601,8 @@ function exportBookingsToExcel() {
 
 // وظائف التنقل بين التابات
 function openAddPropertyModal() {
-    // فتح المودال باستخدام Bootstrap 4
-    $('#addPropertyModal').modal('show');
+    // أضف عقار صار له صفحة كاملة بالتصميم الجديد بدل المودال القديم
+    window.location.href = '{{ route('owner.chalets.create') }}';
 }
 
 function showPropertiesTab() {
