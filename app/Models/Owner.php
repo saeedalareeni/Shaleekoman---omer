@@ -57,9 +57,9 @@ class Owner extends Authenticatable
             return asset($chalet->main_image);
         }
 
-        $chaletImage = \App\Models\ChaletImage::whereIn('chalet_id', $this->chalets()->pluck('id'))->whereNotNull('image')->first();
+        $chaletImage = \App\Models\ChaletImage::whereIn('chalet_id', $this->chalets()->pluck('id'))->whereNotNull('image_path')->first();
         if ($chaletImage) {
-            return asset($chaletImage->image);
+            return asset($chaletImage->image_path);
         }
 
         return null;
