@@ -62,6 +62,10 @@
                  accounts on Shaleek, so there's no separate "user login" entry point. --}}
 
             @auth('owner')
+                <a href="{{ route('owner.chalets.create') }}" class="shaleek-btn-login" style="display:inline-flex;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    {{ app()->getLocale() == 'ar' ? 'أضف عقار' : 'Add property' }}
+                </a>
                 <a href="{{ route('owner.dashboard') }}" class="shaleek-btn-host">
                     <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M12 12.5v5"></path><path d="M9.5 15h5"></path></svg>
                     {{ app()->getLocale() == 'ar' ? 'لوحة تحكم المضيف' : 'Host Dashboard' }}
@@ -125,6 +129,7 @@
                 </form>
             @endauth
             @auth('owner')
+                <a href="{{ route('owner.chalets.create') }}">{{ app()->getLocale() == 'ar' ? 'أضف عقار' : 'Add property' }}</a>
                 <a href="{{ route('owner.dashboard') }}">{{ app()->getLocale() == 'ar' ? 'لوحة تحكم المضيف' : 'Host Dashboard' }}</a>
             @else
                 <a href="{{ LaravelLocalization::localizeUrl('/owner/login') }}">{{ app()->getLocale() == 'ar' ? 'أضف عقارك' : 'Add your property' }}</a>
