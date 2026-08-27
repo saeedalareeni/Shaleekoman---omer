@@ -70,9 +70,9 @@
                         <div class="shaleek-form-field">
                             <label for="category_id">{{ $isArabic ? 'القسم المناسب' : 'Suitable category' }} <span class="shaleek-req">*</span></label>
                             <select id="category_id" class="shaleek-form-select" name="category_id" required>
-                                <option value="" selected disabled>{{ $isArabic ? 'اختر القسم' : 'Choose category' }}</option>
+                                <option value="" {{ old('category_id') ? '' : 'selected' }} disabled>{{ $isArabic ? 'اختر القسم' : 'Choose category' }}</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $isArabic ? $category->name_ar : $category->name_en }}</option>
+                                    <option value="{{ $category->id }}" {{ (string) old('category_id') === (string) $category->id ? 'selected' : '' }}>{{ $isArabic ? $category->name_ar : $category->name_en }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -96,16 +96,16 @@
                         <div class="shaleek-form-field">
                             <label for="city_id">{{ $isArabic ? 'المحافظة' : 'Governorate' }} <span class="shaleek-req">*</span></label>
                             <select id="city_id" class="shaleek-form-select" name="city_id" required>
-                                <option value="" selected disabled>{{ $isArabic ? 'اختر المحافظة' : 'Choose governorate' }}</option>
+                                <option value="" {{ old('city_id') ? '' : 'selected' }} disabled>{{ $isArabic ? 'اختر المحافظة' : 'Choose governorate' }}</option>
                                 @foreach ($cities as $city)
-                                    <option value="{{ $city->id }}">{{ $isArabic ? $city->name_ar : $city->name_en }}</option>
+                                    <option value="{{ $city->id }}" {{ (string) old('city_id') === (string) $city->id ? 'selected' : '' }}>{{ $isArabic ? $city->name_ar : $city->name_en }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="shaleek-form-field">
                             <label for="area_id">{{ $isArabic ? 'الولاية / المنطقة' : 'State / Area' }} <span class="shaleek-req">*</span></label>
-                            <select class="shaleek-form-select" id="area_id" name="area_id" required>
+                            <select class="shaleek-form-select" id="area_id" name="area_id" required data-old="{{ old('area_id') }}">
                                 <option value="" selected disabled>{{ $isArabic ? 'اختر المحافظة أولاً' : 'Choose governorate first' }}</option>
                             </select>
                         </div>
@@ -145,14 +145,14 @@
                             <label for="phone">{{ $isArabic ? 'رقم التواصل بالاتصال' : 'Call number' }} <span class="shaleek-req">*</span></label>
                             <div class="shaleek-phone-wrap">
                                 <span class="shaleek-phone-prefix">+968</span>
-                                <input type="tel" class="shaleek-form-input" id="phone" name="phone" placeholder="9XXXXXXX" pattern="[0-9]{8}" maxlength="8" required>
+                                <input type="tel" class="shaleek-form-input" id="phone" name="phone" value="{{ old('phone') ? substr(preg_replace('/\D/', '', old('phone')), -8) : '' }}" placeholder="9XXXXXXX" pattern="[0-9]{8}" maxlength="8" required>
                             </div>
                         </div>
                         <div class="shaleek-form-field">
                             <label for="whatsapp_number">{{ $isArabic ? 'رقم الواتساب' : 'WhatsApp number' }} <span class="shaleek-req">*</span></label>
                             <div class="shaleek-phone-wrap">
                                 <span class="shaleek-phone-prefix">+968</span>
-                                <input type="tel" class="shaleek-form-input" id="whatsapp_number" name="whatsapp_number" placeholder="9XXXXXXX" pattern="[0-9]{8}" maxlength="8" required>
+                                <input type="tel" class="shaleek-form-input" id="whatsapp_number" name="whatsapp_number" value="{{ old('whatsapp_number') ? substr(preg_replace('/\D/', '', old('whatsapp_number')), -8) : '' }}" placeholder="9XXXXXXX" pattern="[0-9]{8}" maxlength="8" required>
                             </div>
                             <div class="shaleek-form-hint">{{ $isArabic ? 'سيصلك عليه تواصل العملاء مباشرة' : 'Customers will contact you on it directly' }}</div>
                         </div>
@@ -168,7 +168,7 @@
                     <div class="shaleek-dropzone" id="shDropzone" onclick="document.getElementById('shPhotosPicker').click()">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>
                         <div class="shaleek-dropzone-title">{{ $isArabic ? 'اضغط لإضافة الصور أو اسحبها هنا' : 'Click to add photos or drag them here' }}</div>
-                        <div class="shaleek-dropzone-hint">{{ $isArabic ? 'حتى ١٠ صور — يُفضّل صور أفقية واضحة (الصورة الأولى هي الرئيسية)' : 'Up to 10 photos — clear landscape photos preferred (the first photo becomes the main one)' }}</div>
+                        <div class="shaleek-dropzone-hint">{{ $isArabic ? 'حتى ١٠ صور — يُفضّل صور أفقية واضحة (الصورة الأولى هي الرئيسية) — بحجم أقل من 2 ميجابايت لكل صورة' : 'Up to 10 photos — clear landscape photos preferred (the first photo becomes the main one) — under 2MB each' }}</div>
                     </div>
                     <div class="shaleek-photo-grid" id="shPhotoGrid"></div>
                     <div class="shaleek-photo-count" id="shPhotoCount"></div>
@@ -221,21 +221,38 @@
     <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
     <script>
         // Governorate → area (vanilla fetch, no jQuery on this page)
-        document.getElementById('city_id').addEventListener('change', function () {
+        function shLoadAreas(cityId, selectAreaId) {
             var areaSelect = document.getElementById('area_id');
             areaSelect.innerHTML = '<option value="" selected disabled>{{ $isArabic ? "جاري التحميل..." : "Loading..." }}</option>';
-            fetch("{{ url('getareas') }}/" + this.value)
+            fetch("{{ url('getareas') }}/" + cityId)
                 .then(function (res) { return res.json(); })
                 .then(function (data) {
-                    areaSelect.innerHTML = '<option value="" selected disabled>{{ $isArabic ? "اختر المنطقة" : "Choose area" }}</option>';
+                    areaSelect.innerHTML = '<option value="" ' + (selectAreaId ? '' : 'selected') + ' disabled>{{ $isArabic ? "اختر المنطقة" : "Choose area" }}</option>';
                     Object.keys(data).forEach(function (id) {
                         var opt = document.createElement('option');
                         opt.value = id;
                         opt.textContent = data[id];
+                        if (selectAreaId && String(id) === String(selectAreaId)) opt.selected = true;
                         areaSelect.appendChild(opt);
                     });
                 });
+        }
+
+        document.getElementById('city_id').addEventListener('change', function () {
+            shLoadAreas(this.value, null);
         });
+
+        // Re-populate the area dropdown after a failed submit (e.g. "photo too
+        // large") sent the owner back here — city/category selects keep their
+        // choice server-side already; the area list needs a fresh fetch since
+        // it only exists client-side.
+        (function () {
+            var cityId = document.getElementById('city_id').value;
+            var oldAreaId = document.getElementById('area_id').dataset.old;
+            if (cityId && oldAreaId) {
+                shLoadAreas(cityId, oldAreaId);
+            }
+        })();
 
         // Price mode: "starts from" vs "contact for pricing"
         function shSetPriceMode(mode) {
@@ -289,12 +306,21 @@
             shRenderPhotos();
         }
 
+        var SH_MAX_PHOTO_BYTES = 2 * 1024 * 1024; // server rejects anything over 2MB
+
         function shAddPhotos(fileList) {
+            var tooBig = 0;
             Array.from(fileList).forEach(function (file) {
-                if (shPhotoFiles.length < 10 && file.type.startsWith('image/')) {
-                    shPhotoFiles.push(file);
+                if (shPhotoFiles.length >= 10 || !file.type.startsWith('image/')) return;
+                if (file.size > SH_MAX_PHOTO_BYTES) {
+                    tooBig++;
+                    return;
                 }
+                shPhotoFiles.push(file);
             });
+            if (tooBig > 0) {
+                alert('{{ $isArabic ? "تم تجاهل" : "Skipped" }} ' + tooBig + ' {{ $isArabic ? "صورة لأن حجمها أكبر من 2 ميجابايت. رجاءً صغّر حجمها وأعد إضافتها." : "photo(s) larger than 2MB. Please compress them and add again." }}');
+            }
             shRenderPhotos();
         }
 
