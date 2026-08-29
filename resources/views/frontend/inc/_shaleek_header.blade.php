@@ -50,7 +50,7 @@
 
         <div class="shaleek-header-actions">
             @auth('customer')
-                <a href="{{ route('account.orders') }}" class="shaleek-btn-login" style="display:inline-flex;">
+                <a href="{{ route('account.orders') }}" class="shaleek-btn-login">
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
                     {{ app()->getLocale() == 'ar' ? 'حسابي' : 'My Account' }}
                     @if($shCustomerUnread > 0)
@@ -66,7 +66,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     {{ app()->getLocale() == 'ar' ? 'أضف عقار' : 'Add property' }}
                 </a>
-                <a href="{{ route('owner.dashboard') }}" class="shaleek-btn-login" style="display:inline-flex;">
+                <a href="{{ route('owner.dashboard') }}" class="shaleek-btn-login">
                     <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path><path d="M12 12.5v5"></path><path d="M9.5 15h5"></path></svg>
                     {{ app()->getLocale() == 'ar' ? 'لوحة تحكم المضيف' : 'Host Dashboard' }}
                 </a>
