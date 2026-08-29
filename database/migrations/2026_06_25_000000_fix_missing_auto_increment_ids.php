@@ -22,7 +22,8 @@ return new class extends Migration
              FROM information_schema.COLUMNS
              WHERE TABLE_SCHEMA = ?
                AND COLUMN_NAME = 'id'
-               AND EXTRA NOT LIKE '%auto_increment%'",
+               AND EXTRA NOT LIKE '%auto_increment%'
+               AND COLUMN_TYPE LIKE '%int%'",
             [$database]
         );
 
