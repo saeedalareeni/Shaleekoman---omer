@@ -94,6 +94,7 @@ class ChaletController extends Controller
             'half_day_price'            => 'nullable|numeric|min:0',
             'stay_price'                => 'nullable|numeric|min:0',
             'holiday_day_price'         => 'nullable|numeric|min:0',
+            'price_unit'                => 'nullable|string|max:50',
             'insurance_amount'          => 'nullable|numeric|min:0',
             'max_guests'                => 'nullable|integer|min:1',
             'amenities'                 => 'nullable|array',
@@ -128,6 +129,7 @@ class ChaletController extends Controller
         $chalet->half_day_price = $request->half_day_price ?: ($request->default_day_price ?: 0);
         $chalet->stay_price = $request->stay_price ?: ($request->default_day_price ?: 0);
         $chalet->holiday_day_price = $request->holiday_day_price ?: ($request->default_day_price ?: 0);
+        $chalet->price_unit = $request->price_unit;
         $chalet->city_id                 = $request->city_id;
         $chalet->area_id                 = $request->area_id;
 

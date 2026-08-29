@@ -69,7 +69,7 @@
 
                         <div class="shaleek-form-field">
                             <label for="category_id">{{ $isArabic ? 'القسم المناسب' : 'Suitable category' }} <span class="shaleek-req">*</span></label>
-                            <select id="category_id" class="shaleek-form-select" name="category_id" required>
+                            <select id="category_id" class="shaleek-form-select" name="category_id" required onchange="shUpdateUnits(this.value)">
                                 <option value="" {{ old('category_id') ? '' : 'selected' }} disabled>{{ $isArabic ? 'اختر القسم' : 'Choose category' }}</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" {{ (string) old('category_id') === (string) $category->id ? 'selected' : '' }}>{{ $isArabic ? $category->name_ar : $category->name_en }}</option>
@@ -131,8 +131,11 @@
                             <input type="number" step="0.01" class="shaleek-form-input" id="default_day_price" name="default_day_price" value="{{ old('default_day_price') }}" placeholder="60" min="1" required>
                         </div>
                         <div class="shaleek-form-field">
-                            <label>{{ $isArabic ? 'الوحدة' : 'Unit' }}</label>
-                            <input type="text" class="shaleek-form-input" value="{{ $isArabic ? 'ر.ع / ليلة' : 'OMR / night' }}" disabled>
+                            <label for="price_unit">{{ $isArabic ? 'الوحدة' : 'Unit' }}</label>
+                            <select class="shaleek-form-select" id="price_unit" name="price_unit">
+                                <option value="">{{ $isArabic ? 'اختر القسم أولاً' : 'Choose category first' }}</option>
+                            </select>
+                            <div class="shaleek-form-hint" id="unitHint">{{ $isArabic ? 'تتحدد الوحدات تلقائياً حسب القسم المختار' : 'Units are set automatically based on the chosen category' }}</div>
                         </div>
                     </div>
                 </div>
@@ -220,6 +223,46 @@
 
     <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
     <script>
+        // Price units per category — matched leniently by keyword since category
+        // names come from the DB and may differ slightly in spacing/punctuation.
+        var shUnitsByCategory = {
+            @foreach($categories as $category)
+                {{ $category->id }}: @if(str_contains($category->name_ar, 'كرفان'))
+                    {{ $isArabic ? json_encode(['يوم', 'أسبوع', 'شهر'], JSON_UNESCAPED_UNICODE) : json_encode(['Day', 'Week', 'Month']) }}
+                @elseif(str_contains($category->name_ar, 'أفراح') || str_contains($category->name_ar, 'افراح'))
+                    {{ $isArabic ? json_encode(['مناسبة أفراح', 'مناسبة عيد ميلاد', 'يوم'], JSON_UNESCAPED_UNICODE) : json_encode(['Wedding event', 'Birthday event', 'Day']) }}
+                @elseif(str_contains($category->name_ar, 'صالون'))
+                    {{ $isArabic ? json_encode(['خدمة', 'جلسة', 'باقة', 'حنّاء'], JSON_UNESCAPED_UNICODE) : json_encode(['Service', 'Session', 'Package', 'Henna']) }}
+                @elseif(str_contains($category->name_ar, 'جلس') || str_contains($category->name_ar, 'مخيم'))
+                    {{ $isArabic ? json_encode(['ليلة', 'يوم', 'جلسة'], JSON_UNESCAPED_UNICODE) : json_encode(['Night', 'Day', 'Session']) }}
+                @else
+                    {{ $isArabic ? json_encode(['ليلة', 'يوم', 'أسبوع', 'شهر'], JSON_UNESCAPED_UNICODE) : json_encode(['Night', 'Day', 'Week', 'Month']) }}
+                @endif,
+            @endforeach
+        };
+
+        function shUpdateUnits(categoryId) {
+            var sel = document.getElementById('price_unit');
+            var hint = document.getElementById('unitHint');
+            var units = shUnitsByCategory[categoryId];
+            if (!units) {
+                sel.innerHTML = '<option value="">{{ $isArabic ? "اختر القسم أولاً" : "Choose category first" }}</option>';
+                hint.textContent = '{{ $isArabic ? "تتحدد الوحدات تلقائياً حسب القسم المختار" : "Units are set automatically based on the chosen category" }}';
+                return;
+            }
+            var oldUnit = sel.dataset.old || '';
+            sel.innerHTML = units.map(function (u) {
+                return '<option' + (u === oldUnit ? ' selected' : '') + '>' + u + '</option>';
+            }).join('');
+            hint.textContent = '{{ $isArabic ? "وحدة السعر لعقارك" : "The price unit for your property" }}';
+        }
+
+        (function () {
+            var cat = document.getElementById('category_id');
+            document.getElementById('price_unit').dataset.old = @json(old('price_unit'));
+            if (cat.value) shUpdateUnits(cat.value);
+        })();
+
         // Governorate → area (vanilla fetch, no jQuery on this page)
         function shLoadAreas(cityId, selectAreaId) {
             var areaSelect = document.getElementById('area_id');

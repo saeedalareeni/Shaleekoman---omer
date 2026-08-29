@@ -66,7 +66,7 @@
             <div class="shaleek-prop-price">
                 @if($chalet->default_day_price)
                     <span class="shaleek-prop-price-from">{{ app()->getLocale() == 'ar' ? 'يبدأ من' : 'From' }}</span>
-                    <div class="shaleek-prop-price-current">{{ number_format((float) $chalet->default_day_price, 0) }} <span class="shaleek-prop-price-unit">{{ app()->getLocale() == 'ar' ? 'ر.ع / ليلة' : 'OMR / night' }}</span></div>
+                    <div class="shaleek-prop-price-current">{{ number_format((float) $chalet->default_day_price, 0) }} <span class="shaleek-prop-price-unit">{{ app()->getLocale() == 'ar' ? 'ر.ع / ' . ($chalet->price_unit ?: 'ليلة') : 'OMR / ' . ($chalet->price_unit ?: 'night') }}</span></div>
                 @else
                     <span class="shaleek-prop-price-ask">{{ app()->getLocale() == 'ar' ? 'تواصل لمعرفة الأسعار' : 'Contact for pricing' }}</span>
                 @endif

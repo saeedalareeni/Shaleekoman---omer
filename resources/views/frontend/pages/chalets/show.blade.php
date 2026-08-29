@@ -273,7 +273,7 @@
                                     @if($chalet->default_day_price)
                                     <div>
                                         <span class="shaleek-cta-price-current">{{ number_format((float) $chalet->default_day_price, 0) }}</span>
-                                        <span class="shaleek-cta-price-unit">{{ $isArabic ? 'ر.ع / ليلة' : 'OMR / night' }}</span>
+                                        <span class="shaleek-cta-price-unit">{{ $isArabic ? 'ر.ع / ' . ($chalet->price_unit ?: 'ليلة') : 'OMR / ' . ($chalet->price_unit ?: 'night') }}</span>
                                     </div>
                                     @else
                                     <div class="shaleek-cta-price-current" style="font-size:18px;">{{ $isArabic ? 'تواصل لمعرفة الأسعار' : 'Contact for pricing' }}</div>
