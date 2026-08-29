@@ -1,5 +1,22 @@
 @php
     $isArabic = app()->getLocale() == 'ar';
+
+    // Price units per category — matched leniently by keyword since category
+    // names come from the DB and may differ slightly in spacing/punctuation.
+    $shUnitsByCategory = [];
+    foreach ($categories as $shCat) {
+        if (str_contains($shCat->name_ar, 'كرفان')) {
+            $shUnitsByCategory[$shCat->id] = $isArabic ? ['يوم', 'أسبوع', 'شهر'] : ['Day', 'Week', 'Month'];
+        } elseif (str_contains($shCat->name_ar, 'أفراح') || str_contains($shCat->name_ar, 'افراح')) {
+            $shUnitsByCategory[$shCat->id] = $isArabic ? ['مناسبة أفراح', 'مناسبة عيد ميلاد', 'يوم'] : ['Wedding event', 'Birthday event', 'Day'];
+        } elseif (str_contains($shCat->name_ar, 'صالون')) {
+            $shUnitsByCategory[$shCat->id] = $isArabic ? ['خدمة', 'جلسة', 'باقة', 'حنّاء'] : ['Service', 'Session', 'Package', 'Henna'];
+        } elseif (str_contains($shCat->name_ar, 'جلس') || str_contains($shCat->name_ar, 'مخيم')) {
+            $shUnitsByCategory[$shCat->id] = $isArabic ? ['ليلة', 'يوم', 'جلسة'] : ['Night', 'Day', 'Session'];
+        } else {
+            $shUnitsByCategory[$shCat->id] = $isArabic ? ['ليلة', 'يوم', 'أسبوع', 'شهر'] : ['Night', 'Day', 'Week', 'Month'];
+        }
+    }
 @endphp
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="{{ $isArabic ? 'rtl' : 'ltr' }}">
@@ -223,23 +240,9 @@
 
     <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
     <script>
-        // Price units per category — matched leniently by keyword since category
-        // names come from the DB and may differ slightly in spacing/punctuation.
-        var shUnitsByCategory = {
-            @foreach($categories as $category)
-                {{ $category->id }}: @if(str_contains($category->name_ar, 'كرفان'))
-                    {{ $isArabic ? json_encode(['يوم', 'أسبوع', 'شهر'], JSON_UNESCAPED_UNICODE) : json_encode(['Day', 'Week', 'Month']) }}
-                @elseif(str_contains($category->name_ar, 'أفراح') || str_contains($category->name_ar, 'افراح'))
-                    {{ $isArabic ? json_encode(['مناسبة أفراح', 'مناسبة عيد ميلاد', 'يوم'], JSON_UNESCAPED_UNICODE) : json_encode(['Wedding event', 'Birthday event', 'Day']) }}
-                @elseif(str_contains($category->name_ar, 'صالون'))
-                    {{ $isArabic ? json_encode(['خدمة', 'جلسة', 'باقة', 'حنّاء'], JSON_UNESCAPED_UNICODE) : json_encode(['Service', 'Session', 'Package', 'Henna']) }}
-                @elseif(str_contains($category->name_ar, 'جلس') || str_contains($category->name_ar, 'مخيم'))
-                    {{ $isArabic ? json_encode(['ليلة', 'يوم', 'جلسة'], JSON_UNESCAPED_UNICODE) : json_encode(['Night', 'Day', 'Session']) }}
-                @else
-                    {{ $isArabic ? json_encode(['ليلة', 'يوم', 'أسبوع', 'شهر'], JSON_UNESCAPED_UNICODE) : json_encode(['Night', 'Day', 'Week', 'Month']) }}
-                @endif,
-            @endforeach
-        };
+        // Price units per category (computed in the @php block above) — passed
+        // through @json() so it's embedded as raw JS, not HTML-escaped.
+        var shUnitsByCategory = @json($shUnitsByCategory);
 
         function shUpdateUnits(categoryId) {
             var sel = document.getElementById('price_unit');
