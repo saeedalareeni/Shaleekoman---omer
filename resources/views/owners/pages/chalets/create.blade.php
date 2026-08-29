@@ -241,7 +241,7 @@
     <script src="{{ asset('frontend/js/shaleek-design.js') }}?v={{ @filemtime(public_path('frontend/js/shaleek-design.js')) ?: time() }}"></script>
     <script>
         // Price units per category (computed in the @php block above) — passed
-        // through @json() so it's embedded as raw JS, not HTML-escaped.
+        // through the json directive below so it's embedded as raw JS, not HTML-escaped.
         var shUnitsByCategory = @json($shUnitsByCategory);
 
         function shUpdateUnits(categoryId) {
