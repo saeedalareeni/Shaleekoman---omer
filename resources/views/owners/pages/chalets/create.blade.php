@@ -181,7 +181,7 @@
 
                 <!-- Photos -->
                 <div class="shaleek-form-card">
-                    <div class="shaleek-form-section-title">{{ $isArabic ? 'صور المشروع' : 'Project photos' }}</div>
+                    <div class="shaleek-form-section-title">{{ $isArabic ? 'صور المشروع' : 'Project photos' }} <span class="shaleek-req">*</span></div>
                     <input type="file" id="shPhotosPicker" accept="image/*" multiple hidden>
                     <input type="file" id="main_image" name="main_image" hidden>
                     <input type="file" id="shExtraImages" name="images[]" multiple hidden>
@@ -387,8 +387,17 @@
         });
 
         // Amenity chips → hidden inputs on submit
-        document.getElementById('shAddForm').addEventListener('submit', function () {
+        document.getElementById('shAddForm').addEventListener('submit', function (e) {
             var form = this;
+
+            // على الأقل صورة واحدة إجبارية قبل إرسال النموذج.
+            if (shPhotoFiles.length === 0) {
+                e.preventDefault();
+                alert('{{ $isArabic ? "الرجاء إضافة صورة واحدة على الأقل للعقار" : "Please add at least one photo of the property" }}');
+                shDropzone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
             document.querySelectorAll('#shAmenityChips .shaleek-filter-option.active').forEach(function (chip) {
                 var input = document.createElement('input');
                 input.type = 'hidden';

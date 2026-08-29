@@ -74,6 +74,13 @@ class ChaletController extends Controller
             }
         };
 
+        // على الأقل صورة واحدة إجبارية: إمّا الصورة الرئيسية أو إحدى صور المعرض.
+        if (!$request->hasFile('main_image') && !$request->hasFile('images')) {
+            return back()->withInput()->withErrors([
+                'main_image' => __('يجب إضافة صورة واحدة على الأقل للعقار'),
+            ]);
+        }
+
         $request->validate([
             'category_id'              => 'required',
             'chalet_name_ar'            => 'required|string|max:255',
